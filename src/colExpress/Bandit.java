@@ -1,6 +1,8 @@
+package colExpress;
+
 public class Bandit extends Personne {
 
-private Direction directionBandandi=Direction.IMMOBILE;
+private Direction directionBandandi= Direction.IMMOBILE;
 
     public Bandit(String name, Wagon wagon) {
         super(name, wagon);
@@ -8,8 +10,8 @@ private Direction directionBandandi=Direction.IMMOBILE;
 
     }
 
-    public Bandit(int idPerson, Wagon wagon) {
-        super(idPerson, wagon);
+    public Bandit( Wagon wagon) {
+        super( wagon);
     }
 
     public void evolutionBandit(){
@@ -17,13 +19,14 @@ private Direction directionBandandi=Direction.IMMOBILE;
     }
 
     void avancer(){
-        if(this.wagon.getIdWagon()==1){
+        /*
+        if(wagon.getIdWagon()==1){
             System.out.println(this.name+ " can't move forward ! ");
         }
         else{
             allerWagonSuivant();
         }
-
+*/
 
 
         /**
@@ -41,20 +44,21 @@ private Direction directionBandandi=Direction.IMMOBILE;
     private void allerWagonSuivant() {
         //ici l'enlever dans la liste des banddit présents dans son wagon courant  et
         // et le l'aajouter la liste des bandit du wagon suivant.
-        
+
 
     }
 
 
 
     private void reculer() {
-
-        if(this.wagon.getIdWagon()==Wagon.getNbrInstanceWagon()){
+  /*s
+        if(this.wagon.getIdWagon()== Wagon.getNbrInstanceWagon()){
             System.out.println(this.name+ " can't move back ! ");
         }
         else {
             allerWagonPrecedant();
         }
+        */
 
     }
 

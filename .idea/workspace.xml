@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/col-express-game.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Personne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Wagon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/colExpress/Addition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/colExpress/AdditionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/colExpress/PersonneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/col-express-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/col-express-game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DeplamentPersonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/DeplamentPersonne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Marshal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Personne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Voyageur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Voyageur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +31,15 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -43,18 +53,130 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.colExpress.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AdditionTest.add.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdditionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonneTest.getNbInstancePersonne.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonneTest.getPersonInSameWagon.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/col-express-game/col-express-game/src/colExpress&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\col-express-game\col-express-game\src\colExpress" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="colExpress" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.PersonneTest.getPersonInSameWagon">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="col-express-game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdditionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.AdditionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdditionTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.AdditionTest" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonneTest.getNbInstancePersonne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.PersonneTest" />
+      <option name="METHOD_NAME" value="getNbInstancePersonne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonneTest.getPersonInSameWagon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.PersonneTest" />
+      <option name="METHOD_NAME" value="getPersonInSameWagon" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PersonneTest.getPersonInSameWagon" />
+        <item itemvalue="JUnit.PersonneTest.getNbInstancePersonne" />
+        <item itemvalue="JUnit.AdditionTest.add" />
+        <item itemvalue="JUnit.AdditionTest" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,11 +194,29 @@
       <updated>1712493472966</updated>
       <workItem from="1712493474061" duration="14704000" />
       <workItem from="1712577116141" duration="4999000" />
-      <workItem from="1712649337217" duration="3856000" />
+      <workItem from="1712649337217" duration="23480000" />
+      <workItem from="1712695503308" duration="13976000" />
+      <workItem from="1712731253457" duration="9984000" />
+      <workItem from="1712771365931" duration="9516000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/colExpress/PersonneTest.java</url>
+          <line>11</line>
+          <properties class="colExpress.PersonneTest" method="getNbInstancePersonne">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,4 +1,6 @@
-public class Marshal extends Personne{
+package colExpress;
+
+public class Marshal extends Personne {
     public Marshal(String name, Wagon wagon) {
         super(name, wagon);
         this.setName("Marshal");
@@ -6,8 +8,8 @@ public class Marshal extends Personne{
     }
 
 
-    public Marshal(int idPerson, Wagon wagon) {
-        super(idPerson, wagon);
+    public Marshal( Wagon wagon) {
+        super( wagon);
     }
 
     public void avancer(){
