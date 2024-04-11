@@ -1,14 +1,23 @@
 package colExpress;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bandit extends Personne {
 
 private Direction directionBandandi= Direction.IMMOBILE;
+private ENVIRONNEMENT evironnementBandit=ENVIRONNEMENT.INTERIEUR;
+List<Butin> butins=new ArrayList<>();
+int dureeVie= (int)(Math.random()*10);
+boolean estVivant=true;
 
-    public Bandit(String name, Wagon wagon) {
-        super(name, wagon);
+    public Bandit(String name) {
+        super(name);
 
 
     }
+
+
 
     public Bandit( Wagon wagon) {
         super( wagon);
@@ -19,14 +28,14 @@ private Direction directionBandandi= Direction.IMMOBILE;
     }
 
     void avancer(){
-        /*
+
         if(wagon.getIdWagon()==1){
             System.out.println(this.name+ " can't move forward ! ");
         }
         else{
             allerWagonSuivant();
         }
-*/
+
 
 
         /**
@@ -51,19 +60,39 @@ private Direction directionBandandi= Direction.IMMOBILE;
 
 
     private void reculer() {
-  /*s
+
         if(this.wagon.getIdWagon()== Wagon.getNbrInstanceWagon()){
             System.out.println(this.name+ " can't move back ! ");
         }
         else {
             allerWagonPrecedant();
         }
-        */
+
+
+    }
+
+
+    public void monter(){
+
+    }
+    public void descendre(){
 
     }
 
     private void allerWagonPrecedant() {
     }
+
+void decrementerDureeDeVie(){
+        if (this.dureeVie>0){
+            --this.dureeVie;
+        }
+        else{
+          this.estVivant=false;
+        }
+
+
+}
+
 
 
 }

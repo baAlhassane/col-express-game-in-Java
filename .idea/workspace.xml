@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/colExpress/Addition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/colExpress/AdditionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/colExpress/PersonneTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/colExpress/ENVIRONNEMENT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/colExpress/Locomotive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modele/Cellule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modele/Modele.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/col-express-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/col-express-game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DeplamentPersonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/DeplamentPersonne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Marshal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Personne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Voyageur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Voyageur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Marshal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Personne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Voyageur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Voyageur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -52,6 +48,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.colExpress.Main.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
@@ -90,31 +87,23 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Main" />
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="colExpress" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonneTest.getPersonInSameWagon">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="col-express-game" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdditionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AdditionTest.add">
+    <configuration name="Main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="colExpress.*" />
+          <option name="PATTERN" value="Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="colExpress" />
-      <option name="MAIN_CLASS_NAME" value="colExpress.AdditionTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,7 +112,7 @@
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="colExpress.*" />
+          <option name="PATTERN" value="Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,7 +128,7 @@
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="colExpress.*" />
+          <option name="PATTERN" value="Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,7 +144,7 @@
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="colExpress.*" />
+          <option name="PATTERN" value="Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,11 +158,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AdditionTest.add" />
+        <item itemvalue="Application.Main.Main" />
         <item itemvalue="JUnit.PersonneTest.getPersonInSameWagon" />
         <item itemvalue="JUnit.PersonneTest.getNbInstancePersonne" />
-        <item itemvalue="JUnit.AdditionTest.add" />
-        <item itemvalue="JUnit.AdditionTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -197,12 +185,25 @@
       <workItem from="1712649337217" duration="23480000" />
       <workItem from="1712695503308" duration="13976000" />
       <workItem from="1712731253457" duration="9984000" />
-      <workItem from="1712771365931" duration="9516000" />
+      <workItem from="1712771365931" duration="11712000" />
+      <workItem from="1712810147189" duration="6776000" />
+      <workItem from="1712838274218" duration="12976000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

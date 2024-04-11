@@ -1,11 +1,16 @@
 package colExpress;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Voyageur extends Personne {
-    public Voyageur(String name, Wagon wagon) {
-        super(name, wagon);
+    List<Butin> butins=new ArrayList<>();
+    public Voyageur(String name,List<Butin> butins) {
+        super(name);
+        this.butins=butins;
     }
 
-    public Voyageur(int idPerson, Wagon wagon) {
-        super( wagon);
+    public Voyageur( ) {
+        super();
     }
 }

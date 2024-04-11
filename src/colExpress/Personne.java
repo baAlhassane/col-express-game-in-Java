@@ -1,5 +1,7 @@
 package colExpress;
 
+import modele.Cellule;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
@@ -22,9 +24,25 @@ public class Personne {
     private int idPerson;
     private int idWagonOfPerson;
     private Set<Personne> personInSameWagon=new HashSet<>();// personne dans le meme wagon qui s'entretire
-/**
+    private Cellule placeofPersonneInWagon=new Cellule(-1,-1);
+
+    public Cellule getPlaceofPersonneInWagon() {
+        return placeofPersonneInWagon;
+    }
+
+    public void setPlaceofPersonneInWagon(Cellule placeofPersonneInWagon) {
+        this.placeofPersonneInWagon = placeofPersonneInWagon;
+    }
+
+    /**
  * Ce constructeur n'est pas utilisable. car on ne peut pas construcuire une personne
- * avec un wagon. Vu notre spécification.
+ * avec un wagon. Vu notre spécification. Pareil pour le contructeur public Personne( Wagon wg).
+ * Ces des constructeur utilisées pour créer une instance de wagon avec des personnes. Elles
+ * ont les propriétes de classe internes.
+ * C'est comme si on créer la classe Personne dans dans la classe Wagon.
+ * Ca n'a pas de sens de construire des personnes avec des wagons si elles ne sont pas liées
+ * intrinsequement aux wagon.
+ * Par contre on peut le faire avec la classe Marshal. Qui est liée à la locomotive.
  * */
     public Personne(String name, Wagon wg){
         this.name=name;

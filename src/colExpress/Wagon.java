@@ -1,9 +1,10 @@
 package colExpress;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
+import Plateau.Plateau;
+import modele.Cellule;
+
+import java.util.*;
+
 
 public class Wagon {
 /*
@@ -23,9 +24,30 @@ public class Wagon {
     private final int nbrePersonInitialInWagon ;
     private int idWagon;
     private Set<Personne> personInWagon=new HashSet<>();
+    /**
+     * Un wagon est une matrice de 3 ligne et de 2 colonnes.
+     * C'est pour servir de vue et de déplacement et de position du wagon du wagon.
+     * */
+private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
+    List<Cellule> listPlaceOccuppedByWagon=new ArrayList<>();
 
+    public Cellule[][] getPlaceOcuppedByWagonInPlateau() {
+        return placeOcuppedByWagonInPlateau;
+    }
 
-    public Wagon( Personne p){
+    public void setPlaceOcuppedByWagonInPlateau(Cellule[][] placeOcuppedByWagonInPlateau) {
+        this.placeOcuppedByWagonInPlateau = placeOcuppedByWagonInPlateau;
+    }
+
+    public List<Cellule> getListPlaceOccuppedByWagon() {
+        return listPlaceOccuppedByWagon;
+    }
+
+    public void setListPlaceOccuppedByWagon(List<Cellule> listPlaceOccuppedByWagon) {
+        this.listPlaceOccuppedByWagon = listPlaceOccuppedByWagon;
+    }
+
+    public Wagon(Personne p){
 
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 1;
@@ -62,6 +84,24 @@ public class Wagon {
     public Wagon(){
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 0;
+        //this.placeOcuppedByWagonInPlateau
+
+        //int init=this.idWagon;
+        int ligne=this.idWagon;
+        int colonne= Plateau.getLARGEUR()/2;
+
+
+        for (int i=0;i<3;i++){
+            for (int j=0;j<2;j++){
+                this.placeOcuppedByWagonInPlateau[i][j]=Plateau.getPlateau()[ligne+i][colonne+j];
+                this.placeOcuppedByWagonInPlateau[i][j].setOcupedCelluleInPlateay(false);
+                this.listPlaceOccuppedByWagon.add(this.placeOcuppedByWagonInPlateau[i][j]);
+
+            }
+
+
+
+        }
     }
 
     public void addPersonneInWagon(Personne p){
@@ -70,6 +110,15 @@ public class Wagon {
         this.personInWagon.add(p);
         ++this.nbrePersoneInWagon;
         p.setIdWagonOfPerson(this.getIdWagon());
+
+        Random r = new Random();
+        int n = r.nextInt(6);
+        //la place attribue d'une personne dans le wagon est donnée alléatoitement.
+        // et des qu'on attribut la classe on lui assigne sont etat a true;
+        this.listPlaceOccuppedByWagon.get(6).setOcupedCelluleInPlateay(true);
+       p.setPlaceofPersonneInWagon(this.listPlaceOccuppedByWagon.get(6));
+
+
 
     }
 
