@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/colExpress/ENVIRONNEMENT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/colExpress/Locomotive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modele/Cellule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modele/Modele.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Marshal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Personne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Voyageur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Voyageur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/colExpress/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
-    </list>
+    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,7 +175,7 @@
       <workItem from="1712731253457" duration="9984000" />
       <workItem from="1712771365931" duration="11712000" />
       <workItem from="1712810147189" duration="6776000" />
-      <workItem from="1712838274218" duration="12976000" />
+      <workItem from="1712838274218" duration="13321000" />
     </task>
     <servers />
   </component>
