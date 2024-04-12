@@ -2,6 +2,8 @@ package modele;
 
 import Plateau.Plateau;
 
+import java.util.Objects;
+
 public class Cellule  {
 
 
@@ -38,4 +40,25 @@ public class Cellule  {
         this.postY = postY;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cellule cellule = (Cellule) o;
+        return posX == cellule.posX && postY == cellule.postY;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(posX, postY);
+    }
+
+    @Override
+    public String toString() {
+        return "Cellule{" +
+                "posX=" + posX +
+                ", postY=" + postY +
+                ", ocupedCelluleInPlateay=" + ocupedCelluleInPlateay +
+                '}';
+    }
 }
