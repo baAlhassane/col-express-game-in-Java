@@ -24,7 +24,7 @@ public class Personne {
     private int idPerson;
     private int idWagonOfPerson;
     private Set<Personne> personInSameWagon=new HashSet<>();// personne dans le meme wagon qui s'entretire
-    private Cellule placeofPersonneInWagon=new Cellule(-1,-1);
+    protected Cellule placeofPersonneInWagon=new Cellule(-1,-1);
 
     public Cellule getPlaceofPersonneInWagon() {
         return placeofPersonneInWagon;

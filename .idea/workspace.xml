@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="commit des class plateu, cellule" />
+    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="commit des class plateu, cellule ..">
+      <change afterPath="$PROJECT_DIR$/src/test/colExpress/BanditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,8 +47,12 @@
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;JUnit.AdditionTest.add.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AdditionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BanditTest.avancer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BanditTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PersonneTest.getNbInstancePersonne.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PersonneTest.getPersonInSameWagon.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WagonTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WagonTest.getPlaceOcuppedByWagonInPlateau.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -82,7 +91,7 @@
       <recent name="colExpress" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdditionTest.add">
+  <component name="RunManager" selected="JUnit.BanditTest.avancer">
     <configuration name="Main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="col-express-game" />
@@ -112,17 +121,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonneTest.getNbInstancePersonne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BanditTest.avancer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Main.*" />
+          <option name="PATTERN" value="colExpress.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="colExpress" />
-      <option name="MAIN_CLASS_NAME" value="colExpress.PersonneTest" />
-      <option name="METHOD_NAME" value="getNbInstancePersonne" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.BanditTest" />
+      <option name="METHOD_NAME" value="avancer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,12 +153,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WagonTest.getPlaceOcuppedByWagonInPlateau" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.WagonTest" />
+      <option name="METHOD_NAME" value="getPlaceOcuppedByWagonInPlateau" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BanditTest.avancer" />
+        <item itemvalue="JUnit.WagonTest.getPlaceOcuppedByWagonInPlateau" />
         <item itemvalue="JUnit.AdditionTest.add" />
         <item itemvalue="Application.Main.Main" />
         <item itemvalue="JUnit.PersonneTest.getPersonInSameWagon" />
-        <item itemvalue="JUnit.PersonneTest.getNbInstancePersonne" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +201,12 @@
       <workItem from="1712731253457" duration="9984000" />
       <workItem from="1712771365931" duration="11712000" />
       <workItem from="1712810147189" duration="6776000" />
-      <workItem from="1712838274218" duration="13654000" />
+      <workItem from="1712838274218" duration="14232000" />
+      <workItem from="1712862823984" duration="13410000" />
+      <workItem from="1712896244249" duration="5955000" />
+      <workItem from="1712916762324" duration="3870000" />
+      <workItem from="1712923075971" duration="13375000" />
+      <workItem from="1712943782593" duration="6290000" />
     </task>
     <task id="LOCAL-00001" summary="commit des class plateu, cellule">
       <option name="closed" value="true" />
@@ -201,7 +232,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712857661123</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit des class plateu, cellule ..">
+      <option name="closed" value="true" />
+      <created>1712858194974</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712858194974</updated>
+    </task>
+    <task id="LOCAL-00005" summary="commit des class plateu, cellule ..">
+      <option name="closed" value="true" />
+      <created>1712862857938</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712862857938</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +267,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit des class plateu, cellule" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit des class plateu, cellule" />
+    <MESSAGE value="commit des class plateu, cellule .." />
+    <option name="LAST_COMMIT_MESSAGE" value="commit des class plateu, cellule .." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
