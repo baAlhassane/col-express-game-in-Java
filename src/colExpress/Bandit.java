@@ -35,7 +35,10 @@ private Wagon wagonPrecedent;
     }
 
     void avancer(){
+<<<<<<< HEAD
         System.out.println("avancer ");
+=======
+>>>>>>> origin/master
         /***
          *  avancer dans le wagon veut dire occuper toute les places du wagon
          *  suivant l'order du liste de places. Si on termine on se place aux wagon suivant ou précedent
@@ -56,6 +59,7 @@ private Wagon wagonPrecedent;
             }
         }
 
+<<<<<<< HEAD
         else{// ligne!=1
             int lastLineW=this.wagon.getIdWagon()*3-2+2;
             if(ligne%3!=0){
@@ -77,6 +81,22 @@ private Wagon wagonPrecedent;
                         System.out.println(" On peux plus avancer ");
                     }
                 }
+=======
+        else{
+            if(ligne%3==0){
+                if(ligne<Wagon.getNbrInstanceWagon()){
+                    //this.placeofPersonneInWagon.setPosX(ligne+1);
+                    this.allerWagonSuivant();
+                }
+                /*
+                else{
+                    System.out.println(this.name+ " can't move forward  ! ");
+                    System.out.println(this.name+ " sort du    "+this.wagon.getIdWagon());
+                    System.out.println("On ne peut que reculer ");
+                    this.reculer();
+                }
+                */
+>>>>>>> origin/master
 
             }
 
@@ -99,6 +119,7 @@ private Wagon wagonPrecedent;
     private void allerWagonSuivant() {
         //ici l'enlever dans la liste des banddit présents dans son wagon courant  et
         // et le l'aajouter la liste des bandit du wagon suivant.
+<<<<<<< HEAD
         int ligne=this.placeofPersonneInWagon.getPosX();
 
        // this.wagon.retirerPersonneInWagon(this);
@@ -107,6 +128,14 @@ private Wagon wagonPrecedent;
         this.wagon.addPersonneInWagon(this);
         this.placeofPersonneInWagon.setOcupedCelluleInPlateay(true);
 
+=======
+        this.wagon.retirerPersonneInWagon(this);
+        this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
+        int ligne=this.placeofPersonneInWagon.getPosX();
+        this.placeofPersonneInWagon.setPostY(ligne+1);
+        this.wagon.addPersonneInWagon(this);
+        this.placeofPersonneInWagon.setOcupedCelluleInPlateay(true);
+>>>>>>> origin/master
 
     }
 
@@ -123,9 +152,15 @@ private Wagon wagonPrecedent;
                     this.placeofPersonneInWagon.setOcupedCelluleInPlateay(true);
                     //this.avancer();
                 }
+<<<<<<< HEAD
                 //else {
                     //this.voler();
                 //}
+=======
+                else {
+                    this.voler();
+                }
+>>>>>>> origin/master
 
             }
 
@@ -188,6 +223,7 @@ void decrementerDureeDeVie(){
 
         }
 }
+<<<<<<< HEAD
 /**
     public void retirerPersonneInWagon(Personne p){
         this.personInWagon.remove(p);
@@ -203,6 +239,8 @@ void decrementerDureeDeVie(){
     }
 
 
+=======
+>>>>>>> origin/master
 public void voler(Voyageur v){
 Cellule cv=v.getPlaceofPersonneInWagon();
 Cellule cb=this.placeofPersonneInWagon;
@@ -216,11 +254,18 @@ if(cv.equals(cb)){
     for(Butin kb:butinSet){
         int vb=v.getButins().get(kb);
         if(i==n){
+<<<<<<< HEAD
 
             //v.butins.remove(kb);
             bv.remove(kb);
             v.setButins(bv);
             this.addButinVoler(kb,vb);
+=======
+            this.butins.put(kb,vb);
+            //v.butins.remove(kb);
+            bv.remove(kb);
+            v.setButins(bv);
+>>>>>>> origin/master
             break;
         }
         i++;
@@ -235,8 +280,13 @@ if(cv.equals(cb)){
 }
 
 
+<<<<<<< HEAD
 public void addButinVoler(Butin b, Integer valeur){
         this.butins.put(b,valeur);
+=======
+public void addButinVoler(Butin b){
+        this.butins.add(b);
+>>>>>>> origin/master
         if(b.equals(Butin.MAGOT)){
             System.out.println("Jeux terminer le Margo est voléé");
             System.out.println("le gagant est le  Bandit "+this.name);
@@ -244,6 +294,7 @@ public void addButinVoler(Butin b, Integer valeur){
         }
 }
 
+<<<<<<< HEAD
     public Wagon getWagonSuivant() {
         return wagonSuivant;
     }
@@ -259,4 +310,7 @@ public void addButinVoler(Butin b, Integer valeur){
     public void setWagonPrecedent(Wagon wagonPrecedent) {
         this.wagonPrecedent = wagonPrecedent;
     }
+=======
+
+>>>>>>> origin/master
 }

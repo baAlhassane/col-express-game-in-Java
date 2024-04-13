@@ -115,7 +115,10 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
         for (int i=0;i<3;i++){
             for (int j=0;j<2;j++){
                 //System.out.println(Plateau.getPlateau()[ligne*i][colonne+j]);
+<<<<<<< HEAD
                // System.out.println(Plateau.getPlateau()[ligne*i][colonne+j]);
+=======
+>>>>>>> origin/master
                 Cellule c=Plateau.getPlateau()[ligne*3-2+i][colonne+j];
                 c.setOcupedCelluleInPlateay(false);
                 this.placeOcuppedByWagonInPlateau[i][j]=c;
