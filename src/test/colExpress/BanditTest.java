@@ -32,7 +32,7 @@ class BanditTest {
         w3.addPersonneInWagon(bandit);
         w1.addPersonneInWagon(bandit2);
 
-        System.out.println("Deplacement bandit "+bandit.name);
+        System.out.println("Deplacement bandit "+bandit.getName());
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit ");
         System.out.println(bandit.getPlaceofPersonneInWagon());
@@ -40,27 +40,115 @@ class BanditTest {
         System.out.println("position bandit apres avancer ");
         System.out.println(bandit.getPlaceofPersonneInWagon());
 
-        System.out.println("Deplacement bandit "+bandit2.name);
+        System.out.println("Deplacement bandit "+bandit2.getName());
         System.out.println("---------------------------------------");
-        System.out.println("position initiale bandit ");
+        System.out.println("position initiale bandit "+bandit2.getName());
         System.out.println(bandit2.getPlaceofPersonneInWagon());
         bandit2.avancer();
-        System.out.println("position bandit apres avancer ");
+        System.out.println("position bandit apres avancer "+bandit2.getName());
         System.out.println(bandit2.getPlaceofPersonneInWagon());
+        System.out.println(" ----------------------------------");
+        System.out.println(" test des wagon de taille variable ");
 
+        Bandit bandit5=new Bandit("bandit5");
+        Bandit bandit6=new Bandit("bandit6");
 
+        Wagon w4=new Wagon(5);
+        Wagon w5=new Wagon(5);
 
+        w4.addPersonneInWagon(bandit5);
+        w5.addPersonneInWagon(bandit6);
 
+        System.out.println("Deplacement bandit "+bandit5.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit "+bandit5.getName());
+        System.out.println(bandit5.getPlaceofPersonneInWagon());
+        bandit5.avancer();
+        System.out.println("position bandit apres avancer "+bandit5.getName());
+        System.out.println(bandit5.getPlaceofPersonneInWagon());
+
+        System.out.println("Deplacement bandit "+bandit6.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit "+bandit6.getName());
+        System.out.println(bandit6.getPlaceofPersonneInWagon());
+        bandit6.avancer();
+        System.out.println("position bandit apres avancer "+bandit6.getName());
+        System.out.println(bandit6.getPlaceofPersonneInWagon());
 
 
     }
 
     @Test
     void monter() {
+        System.out.println(" test des déplacement monter ");
+        Plateau plateau=new Plateau();
+        Wagon w1=new Wagon();
+        Wagon w2=new Wagon(5);
+        Wagon w3=new Wagon();
+
+        Personne p1=new Personne("alhas");
+        Personne p2=new Personne("alhous");
+        Personne p3=new Personne("dios");
+        Bandit bandit1=new Bandit("bandit1");
+        Bandit bandit2=new Bandit("bandit2");
+
+        w1.addPersonneInWagon(bandit1);
+        w2.addPersonneInWagon(bandit2);
+
+        System.out.println("Deplacement bandit monter "+bandit1.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit monter "+bandit1.getName());
+        System.out.println(bandit1.getPlaceofPersonneInWagon());
+        bandit1.monter();
+        System.out.println("position bandit apres monter"+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+
+        System.out.println("Deplacement bandit monter "+bandit2.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit "+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+        bandit2.monter();
+        System.out.println("position bandit apres monter  "+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+
     }
 
     @Test
     void descendre() {
+        //Si on appelle des un type Personne sur les actions du bandit.
+        // on observe pas de changement de position car. les position sont (-1,-1) par défaux et initoialisé
+        // dans la classe Personne.
+        System.out.println(" test des déplacement monter ");
+        Plateau plateau=new Plateau();
+        Wagon w1=new Wagon();
+        Wagon w2=new Wagon(5);
+        Wagon w3=new Wagon();
+
+        Personne p1=new Personne("alhas");
+        Personne p2=new Personne("alhous");
+        Personne p3=new Personne("dios");
+        Bandit bandit1=new Bandit("bandit1");
+        Bandit bandit2=new Bandit("bandit2");
+
+        w1.addPersonneInWagon(bandit1);
+        w2.addPersonneInWagon(bandit2);
+
+        System.out.println("Deplacement bandit monter "+bandit1.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit monter "+bandit1.getName());
+        System.out.println(bandit1.getPlaceofPersonneInWagon());
+        bandit1.descendre();
+        System.out.println("position bandit apres descendre"+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+
+        System.out.println("Deplacement bandit descendre "+bandit2.getName());
+        System.out.println("---------------------------------------");
+        System.out.println("position initiale bandit "+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+        bandit2.descendre();
+        System.out.println("position bandit apres monter  "+bandit2.getName());
+        System.out.println(bandit2.getPlaceofPersonneInWagon());
+
     }
 
     @Test

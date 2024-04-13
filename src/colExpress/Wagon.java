@@ -21,12 +21,14 @@ public class Wagon {
  */
     private static int nbrInstanceWagon=0;
     private  int nbrePersoneInWagon ;
-    private final int nbrePersonInitialInWagon ;
+    private  int nbrePersonInitialInWagon; ;
     private int idWagon;
 private Wagon wagon;
     private Wagon wagonSuivant;
     private Wagon wagonPrecedent;
     private Set<Personne> personInWagon=new HashSet<>();
+    private int longueurWagon;
+    private static int  longueurTotalWagon=0;
     /**
      * Un wagon est une matrice de 3 ligne et de 2 colonnes.
      * C'est pour servir de vue et de déplacement et de position du wagon du wagon.
@@ -34,8 +36,10 @@ private Wagon wagon;
 
    //private  Plateau  plateau=new Plateau();
 
-private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
+private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
     List<Cellule> listPlaceOccuppedByWagon=new ArrayList<>();
+
+
 
     public Cellule[][] getPlaceOcuppedByWagonInPlateau() {
         return placeOcuppedByWagonInPlateau;
@@ -70,7 +74,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
 
     }
 
-    public Wagon( int nbrePersonInitialInWagon){
+    public Wagon(int taille, int nbrePersonInitialInWagon){
 
         this.nbrePersonInitialInWagon = nbrePersonInitialInWagon;
         this.idWagon=++ nbrInstanceWagon;
@@ -95,8 +99,12 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
          * Chaque colonne designe succesivement intereieur et l'exterieur du wagon.
          * donc une matrice 3*2 de type Cellule. Doc 6 cellules.
          * */
+         this.placeOcuppedByWagonInPlateau=new Cellule[3][2];//
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 0;
+        this.longueurWagon=3;
+        longueurTotalWagon+=this.longueurWagon;
+
         for (int i=0;i<3;i++){
             for (int j=0;j<2;j++){
                //this.placeOcuppedByWagonInPlateau[i][j]=new Cellule(i,j);
@@ -105,33 +113,89 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
 
         }
 
-
         //int init=this.idWagon;
 
         int ligne=this.idWagon;
         int colonne=Plateau.getLARGEUR()/2;
 
-
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("Wagon n° = "+this.idWagon+ ". Sa taille est   = "+this.longueurWagon+ " cellules ");
         for (int i=0;i<3;i++){
             for (int j=0;j<2;j++){
                 //System.out.println(Plateau.getPlateau()[ligne*i][colonne+j]);
-<<<<<<< HEAD
+
                // System.out.println(Plateau.getPlateau()[ligne*i][colonne+j]);
-=======
->>>>>>> origin/master
+
                 Cellule c=Plateau.getPlateau()[ligne*3-2+i][colonne+j];
                 c.setOcupedCelluleInPlateay(false);
                 this.placeOcuppedByWagonInPlateau[i][j]=c;
                 this.listPlaceOccuppedByWagon.add(c);
+                System.out.print(" ("+c.getPosX()+(",")+c.getPostY()+")"+ " ");
                // this.placeOcuppedByWagonInPlateau[i][j]=Plateau.getPlateau()[ligne+i][colonne+j];//.[ligne+i][colonne+j];
                // this.placeOcuppedByWagonInPlateau[i][j].setOcupedCelluleInPlateay(false);
                //this.listPlaceOccuppedByWagon.add(this.placeOcuppedByWagonInPlateau[i][j]);
 
             }
+            System.out.println(" ");
 
 
 
         }
+    }
+
+    public Wagon(int taille){
+        /**
+         * Quand on instancie un wagon on donne les cellules qu'elle occupe.
+         * On avait dit qu'elle occupe 3 ligne du plateau et 2 colonne du plateu.
+         * Chaque colonne designe succesivement intereieur et l'exterieur du wagon.
+         * donc une matrice 3*2 de type Cellule. Doc 6 cellules.
+         * */
+
+        this.longueurWagon=taille;
+        longueurTotalWagon+=this.longueurWagon;
+        this.placeOcuppedByWagonInPlateau=new Cellule[this.longueurWagon][2];//
+        this.idWagon=++ nbrInstanceWagon;
+        nbrePersonInitialInWagon = 0;
+        for (int i=0;i<this.longueurWagon;i++){
+            for (int j=0;j<2;j++){
+                //this.placeOcuppedByWagonInPlateau[i][j]=new Cellule(i,j);
+            }
+        }
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("Wagon n° = "+this.idWagon+ ". Sa taille est   = "+this.longueurWagon+ " cellules ");
+        int ligne=this.idWagon;
+        int colonne=Plateau.getLARGEUR()/2;
+
+        for (int i=0;i<this.longueurWagon;i++){
+            {
+                for(int j=0;j<2;j++){
+                   // Cellule c = Plateau.getPlateau()[ligne * taille - (taille - 1) + i][colonne + j];
+                    int x=Wagon.longueurTotalWagon;
+                    Cellule c = Plateau.getPlateau()[x + i-taille+1][colonne + j];
+
+                    c.setOcupedCelluleInPlateay(false);
+                    this.placeOcuppedByWagonInPlateau[i][j] = c;
+                   //System.out.println("cellle du wagon  N°  "+ligne+ " : ");
+                    //System.out.print(c+ " - ");
+                    System.out.print(" ("+c.getPosX()+(",")+c.getPostY()+")"+ " ");
+
+                    this.listPlaceOccuppedByWagon.add(c);
+                }
+
+                System.out.println( "  ");
+            }
+
+
+        }
+
+    }
+
+    public static int getLongueurTotalWagon() {
+        return longueurTotalWagon;
+    }
+
+    public static void setLongueurTotalWagon(int longueurTotalWagon) {
+        Wagon.longueurTotalWagon = longueurTotalWagon;
     }
 
     public void addPersonneInWagon(Personne p){
@@ -146,6 +210,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
         //la place attribue d'une personne dans le wagon est donnée alléatoitement.
         // et des qu'on attribut la classe on lui assigne sont etat a true;
         this.listPlaceOccuppedByWagon.get(n).setOcupedCelluleInPlateay(true);
+        System.out.println("on est dans add wagon n° "+this.idWagon+" n = "+n+" , "+this.listPlaceOccuppedByWagon.get(n));
        p.setPlaceofPersonneInWagon(this.listPlaceOccuppedByWagon.get(n));
 
     }
@@ -192,6 +257,14 @@ private Cellule[][] placeOcuppedByWagonInPlateau=new Cellule[3][2];//
 
     public int getNbrePersonInitialInWagon() {
         return nbrePersonInitialInWagon;
+    }
+
+    public int getLongueurWagon() {
+        return longueurWagon;
+    }
+
+    public void setLongueurWagon(int longueurWagon) {
+        this.longueurWagon = longueurWagon;
     }
 
     @Override

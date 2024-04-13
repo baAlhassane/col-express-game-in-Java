@@ -39,7 +39,7 @@ class PersonneTest {
 
         Wagon w1= new Wagon();
         Wagon w2=new Wagon();
-        Wagon w3=new Wagon(3);
+        Wagon w3=new Wagon();
 
 
        Personne p1=new Personne("alhas");
