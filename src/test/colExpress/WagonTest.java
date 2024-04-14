@@ -1,22 +1,21 @@
 package colExpress;
 
-import Plateau.Plateau;
+import modele.Modele;
+import plateau.Plateau;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class WagonTest {
 
     @Test
     void getPlaceOcuppedByWagonInPlateau() {
-
-    Plateau plateau=new  Plateau();
+    Modele m =new Modele();
+    Plateau plateau=new  Plateau(m);
         Wagon w1=new Wagon();
         //w1.setPlaceOcuppedByWagonInPlateau();
         Personne p=new Personne("alhas");
         w1.addPersonneInWagon(p);
 
-       System.out.println( p.getPlaceofPersonneInWagon());
+       System.out.println( p.getPlaceOfPersonneInWagon());
         //System.out.println( w1.getPlaceOcuppedByWagonInPlateau());
         w1.printPlacesOccopedByWagon();
 
@@ -25,7 +24,7 @@ class WagonTest {
         Personne p2=new Personne("alhas");
         w2.addPersonneInWagon(p2);
 
-        System.out.println( p2.getPlaceofPersonneInWagon());
+        System.out.println( p2.getPlaceOfPersonneInWagon());
         //System.out.println( w1.getPlaceOcuppedByWagonInPlateau());
         w2.printPlacesOccopedByWagon();
 
@@ -34,7 +33,7 @@ class WagonTest {
         Personne p3=new Personne("alhas");
         w2.addPersonneInWagon(p2);
 
-        System.out.println( p3.getPlaceofPersonneInWagon());
+        System.out.println( p3.getPlaceOfPersonneInWagon());
         //System.out.println( w1.getPlaceOcuppedByWagonInPlateau());
         w3.printPlacesOccopedByWagon();
 

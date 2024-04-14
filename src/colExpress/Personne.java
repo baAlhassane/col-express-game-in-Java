@@ -1,6 +1,7 @@
 package colExpress;
 
-import modele.Cellule;
+import modele.Modele;
+import plateau.Cellule;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -24,14 +25,15 @@ public class Personne {
     private int idPerson;
     private int idWagonOfPerson;
     private Set<Personne> personInSameWagon=new HashSet<>();// personne dans le meme wagon qui s'entretire
-    protected Cellule placeofPersonneInWagon=new Cellule(-1,-1);
+    protected Cellule placeOfPersonneInWagon=new Cellule(new Modele() ,-1,-1);
 
-    public Cellule getPlaceofPersonneInWagon() {
-        return placeofPersonneInWagon;
+
+    public Cellule getPlaceOfPersonneInWagon() {
+        return placeOfPersonneInWagon;
     }
 
-    public void setPlaceofPersonneInWagon(Cellule placeofPersonneInWagon) {
-        this.placeofPersonneInWagon = placeofPersonneInWagon;
+    public void setPlaceOfPersonneInWagon(Cellule placeofPersonneInWagon) {
+        this.placeOfPersonneInWagon = placeofPersonneInWagon;
     }
 
     /**

@@ -1,6 +1,8 @@
 package colExpress;
 
+import modele.Modele;
 import org.junit.jupiter.api.Test;
+import plateau.Plateau;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,6 +12,8 @@ class PersonneTest {
 
     @Test
     void getNbInstancePersonne() {
+        Modele m=new Modele();
+        Plateau plateau=new Plateau(m);
         Personne p1=new Personne("p1",new Wagon());
         int resultIdP1=p1.getIdPerson();
         int resultIdAttenduP1= 1;
@@ -36,7 +40,8 @@ class PersonneTest {
 
     @Test
     void getPersonInSameWagon() {
-
+        Modele m=new Modele();
+        Plateau plateau=new Plateau(m);
         Wagon w1= new Wagon();
         Wagon w2=new Wagon();
         Wagon w3=new Wagon();

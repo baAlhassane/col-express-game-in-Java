@@ -1,11 +1,12 @@
-package Plateau;
+package plateau;
 
-import modele.Cellule;
+import modele.Modele;
 
 public class Plateau {
     private  static final int LONGUEUR=90; ;
     private static final int LARGEUR=90;
     private static   Cellule [][]plateau=new Cellule[LONGUEUR][LARGEUR];
+    private Modele modele;
 
 /**
     private Plateau( int longueur, int largeur) {
@@ -20,13 +21,14 @@ public class Plateau {
         }
     }
  **/
-    public Plateau() {
+    public Plateau(Modele m) {
         for (int i = 0; i < this.LONGUEUR; i++) {
             for (int j = 0; j < this.LARGEUR; j++) {
-                this.plateau[i][j] = new Cellule(i, j);
-                this.plateau[i][j].setOcupedCelluleInPlateay(false);
+              this.plateau[i][j] = new Cellule(m,i, j);
+              this.plateau[i][j].setOcupedCelluleInPlateau(false);
             }
         }
+        this.modele=m;
     }
 /*
     public static Plateau make_plateau(){

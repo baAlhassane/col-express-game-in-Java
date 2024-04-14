@@ -1,7 +1,7 @@
 package colExpress;
 
-import Plateau.Plateau;
-import modele.Cellule;
+import plateau.Plateau;
+import plateau.Cellule;
 
 import java.util.*;
 
@@ -24,8 +24,7 @@ public class Wagon {
     private  int nbrePersonInitialInWagon; ;
     private int idWagon;
 private Wagon wagon;
-    private Wagon wagonSuivant;
-    private Wagon wagonPrecedent;
+
     private Set<Personne> personInWagon=new HashSet<>();
     private int longueurWagon;
     private static int  longueurTotalWagon=0;
@@ -127,8 +126,9 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
                // System.out.println(Plateau.getPlateau()[ligne*i][colonne+j]);
 
                 Cellule c=Plateau.getPlateau()[ligne*3-2+i][colonne+j];
-                c.setOcupedCelluleInPlateay(false);
+                c.setOcupedCelluleInPlateau(true);
                 this.placeOcuppedByWagonInPlateau[i][j]=c;
+                c.setOccupedByWagon(true);
                 this.listPlaceOccuppedByWagon.add(c);
                 System.out.print(" ("+c.getPosX()+(",")+c.getPostY()+")"+ " ");
                // this.placeOcuppedByWagonInPlateau[i][j]=Plateau.getPlateau()[ligne+i][colonne+j];//.[ligne+i][colonne+j];
@@ -173,8 +173,9 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
                     int x=Wagon.longueurTotalWagon;
                     Cellule c = Plateau.getPlateau()[x + i-taille+1][colonne + j];
 
-                    c.setOcupedCelluleInPlateay(false);
+                    c.setOcupedCelluleInPlateau(false);
                     this.placeOcuppedByWagonInPlateau[i][j] = c;
+                    c.setOccupedByWagon(true);
                    //System.out.println("cellle du wagon  N°  "+ligne+ " : ");
                     //System.out.print(c+ " - ");
                     System.out.print(" ("+c.getPosX()+(",")+c.getPostY()+")"+ " ");
@@ -209,15 +210,18 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         int n = r.nextInt(6);
         //la place attribue d'une personne dans le wagon est donnée alléatoitement.
         // et des qu'on attribut la classe on lui assigne sont etat a true;
-        this.listPlaceOccuppedByWagon.get(n).setOcupedCelluleInPlateay(true);
+        this.listPlaceOccuppedByWagon.get(n).setOcupedCelluleInPlateau(true);
+        this.listPlaceOccuppedByWagon.get(n).setOccupedByWagon(true);
+        this.listPlaceOccuppedByWagon.get(n).setOccupedByPersonInWagon(true);
         System.out.println("on est dans add wagon n° "+this.idWagon+" n = "+n+" , "+this.listPlaceOccuppedByWagon.get(n));
-       p.setPlaceofPersonneInWagon(this.listPlaceOccuppedByWagon.get(n));
+       p.setPlaceOfPersonneInWagon(this.listPlaceOccuppedByWagon.get(n));
 
     }
 
     public void retirerPersonneInWagon(Personne p){
         this.personInWagon.remove(p);
-        p.placeofPersonneInWagon.setOcupedCelluleInPlateay(false);
+        //p.placeOfPersonneInWagon.setOcupedCelluleInPlateau(false);
+        p.placeOfPersonneInWagon.setOccupedByPersonInWagon(false);
         --this.nbrePersoneInWagon;
 
 

@@ -7,6 +7,16 @@ import java.util.Map;
 
 public class Voyageur extends Personne {
    private Map<Butin,Integer> butins=new HashMap<>();
+   private boolean isRobbded;
+
+    public boolean isRobbded() {
+        return isRobbded;
+    }
+
+    public void setRobbded(boolean robbded) {
+        isRobbded = robbded;
+    }
+
     public Voyageur(String name , Map<Butin,Integer> butins) {
         super(name);
         this.butins=butins;
@@ -23,4 +33,9 @@ public class Voyageur extends Personne {
     public void setButins(Map<Butin,Integer> butins) {
         this.butins = butins;
     }
+
+    public void crieVoyageur(){
+        System.out.println(" oh my goo. Je suis volée");
+    }
+
 }
