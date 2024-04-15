@@ -31,7 +31,7 @@ private String name;
 
     }
 
-    void avancer() {
+   public void avancer() {
         System.out.println("avancer ");
         /***
          *  avancer dans le wagon veut dire occuper toute les places du wagon
