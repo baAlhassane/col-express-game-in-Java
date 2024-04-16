@@ -182,5 +182,21 @@ public class Personne {
                 //", personInSameWagon=" + personInSameWagon +
                 '}';
     }
+
+    public void monter(){
+        System.out.println(" Les voyageurs ne move pas .Seuls les bandits bougent");
+
+    }
+    public void descendre(){
+        System.out.println(" Les voyageurs ne move pas. Seuls les bandits bougent ");
+
+    }
+    public void avancer(){
+        System.out.println(" Les voyageurs ne move pas. Seuls les bandits bougent");
+    }
+    public void reculer(){
+        System.out.println(" Les voyageurs ne move pas. Seuls les bandits bougent ");
+
+    }
 }
 

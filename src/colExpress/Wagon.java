@@ -37,6 +37,7 @@ private Wagon wagon;
 
 private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
     List<Cellule> listPlaceOccuppedByWagon=new ArrayList<>();
+    private int distanceTotalWagonCourant=0;//la plus grand numero de ligne du wagon courant
 
 
 
@@ -103,6 +104,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         nbrePersonInitialInWagon = 0;
         this.longueurWagon=3;
         longueurTotalWagon+=this.longueurWagon;
+        this.distanceTotalWagonCourant=longueurTotalWagon;// la plus grand numero de ligne du wagon courant
 
         for (int i=0;i<3;i++){
             for (int j=0;j<2;j++){
@@ -143,6 +145,14 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         }
     }
 
+    public int getDistanceTotalWagonCourant() {
+        return distanceTotalWagonCourant;
+    }
+
+    public void setDistanceTotalWagonCourant(int distanceTotalWagonCourant) {
+        this.distanceTotalWagonCourant = distanceTotalWagonCourant;
+    }
+
     public Wagon(int taille){
         /**
          * Quand on instancie un wagon on donne les cellules qu'elle occupe.
@@ -156,6 +166,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         this.placeOcuppedByWagonInPlateau=new Cellule[this.longueurWagon][2];//
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 0;
+        this.distanceTotalWagonCourant=longueurTotalWagon;// la plus grand numero de ligne du wagon courant
         for (int i=0;i<this.longueurWagon;i++){
             for (int j=0;j<2;j++){
                 //this.placeOcuppedByWagonInPlateau[i][j]=new Cellule(i,j);

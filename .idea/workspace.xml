@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="commit des class plateu, cellule ..">
-      <change afterPath="$PROJECT_DIR$/src/test/colExpress/BanditTest.java" afterDir="false" />
+    <list default="true" id="cc363fb7-5605-4acb-92f9-4c8a87a527a4" name="Changes" comment="commit des des test des actions du bandit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/colExpress/Bandit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Bandit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/colExpress/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Personne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/colExpress/Wagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/colExpress/Wagon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/Modele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Modele.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
@@ -49,6 +51,8 @@
     &quot;JUnit.AdditionTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.BanditTest.avancer.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.BanditTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BanditTest.monter.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonneTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PersonneTest.getNbInstancePersonne.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PersonneTest.getPersonInSameWagon.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.WagonTest.executor&quot;: &quot;Run&quot;,
@@ -88,39 +92,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="modele" />
       <recent name="colExpress" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.BanditTest.avancer">
-    <configuration name="Main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.Main" />
-      <module name="col-express-game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdditionTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="col-express-game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="colExpress" />
-      <option name="MAIN_CLASS_NAME" value="colExpress.AdditionTest" />
-      <option name="METHOD_NAME" value="add" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BanditTest.avancer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="col-express-game" />
       <extension name="coverage">
@@ -137,11 +113,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BanditTest.monter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.BanditTest" />
+      <option name="METHOD_NAME" value="monter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonneTest.getNbInstancePersonne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="col-express-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="colExpress.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="colExpress" />
+      <option name="MAIN_CLASS_NAME" value="colExpress.PersonneTest" />
+      <option name="METHOD_NAME" value="getNbInstancePersonne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PersonneTest.getPersonInSameWagon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Main.*" />
+          <option name="PATTERN" value="colExpress.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,7 +161,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WagonTest.getPlaceOcuppedByWagonInPlateau" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WagonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="col-express-game" />
       <extension name="coverage">
         <pattern>
@@ -163,8 +171,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="colExpress" />
       <option name="MAIN_CLASS_NAME" value="colExpress.WagonTest" />
-      <option name="METHOD_NAME" value="getPlaceOcuppedByWagonInPlateau" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,10 +179,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BanditTest.avancer" />
-        <item itemvalue="JUnit.WagonTest.getPlaceOcuppedByWagonInPlateau" />
-        <item itemvalue="JUnit.AdditionTest.add" />
-        <item itemvalue="Application.Main.Main" />
         <item itemvalue="JUnit.PersonneTest.getPersonInSameWagon" />
+        <item itemvalue="JUnit.PersonneTest.getNbInstancePersonne" />
+        <item itemvalue="JUnit.WagonTest" />
+        <item itemvalue="JUnit.BanditTest.monter" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +214,14 @@
       <workItem from="1712916762324" duration="3870000" />
       <workItem from="1712923075971" duration="13375000" />
       <workItem from="1712943782593" duration="6290000" />
+      <workItem from="1712989211352" duration="12877000" />
+      <workItem from="1713009221937" duration="8645000" />
+      <workItem from="1713030082692" duration="2509000" />
+      <workItem from="1713069457664" duration="4765000" />
+      <workItem from="1713098422963" duration="14944000" />
+      <workItem from="1713175205242" duration="3937000" />
+      <workItem from="1713188310457" duration="9961000" />
+      <workItem from="1713256603022" duration="17715000" />
     </task>
     <task id="LOCAL-00001" summary="commit des class plateu, cellule">
       <option name="closed" value="true" />
@@ -269,20 +284,5 @@
     <MESSAGE value="commit des class plateu, cellule" />
     <MESSAGE value="commit des class plateu, cellule .." />
     <option name="LAST_COMMIT_MESSAGE" value="commit des class plateu, cellule .." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/colExpress/PersonneTest.java</url>
-          <line>11</line>
-          <properties class="colExpress.PersonneTest" method="getNbInstancePersonne">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

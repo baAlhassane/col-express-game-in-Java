@@ -32,13 +32,22 @@ private String name;
     }
 
    public void avancer() {
-        System.out.println("avancer ");
+        /** Tout ce bla bla de if else est un test. A ce stade on a pas fait le modele
+         * Une fois le modele mis en place c'est a lui de gerer les deplacement et changement de wagon.
+         * Donc on le met en commentaire et faire   this.placeOfPersonneInWagon.setPosX(ligne + 1);
+         * Et le reste est gérer par le modele.
+         * **/
+
         /***
          *  avancer dans le wagon veut dire occuper toute les places du wagon
          *  suivant l'order du liste de places. Si on termine on se place aux wagon suivant ou précedent
          */
-        int ligne = this.placeOfPersonneInWagon.getPosX();
-        int taille=this.wagon.getLongueurWagon();
+
+
+
+/**
+ * int ligne = this.placeOfPersonneInWagon.getPosX();
+ *         int taille=this.wagon.getLongueurWagon();
         if (this.wagon.getIdWagon() == 1) {
             if (ligne < taille) {
                 this.placeOfPersonneInWagon.setPosX(ligne + 1);
@@ -46,7 +55,12 @@ private String name;
                 System.out.println(this.name + " can't move forward  ! ");
                 System.out.println(this.name + " sort du  wagon N° " + this.wagon.getIdWagon());
                 System.out.println("pour aller au wagon suivant ");
-                this.allerWagonSuivant();
+
+               //  *on enleve aller au wagon suivant et on le met dans le modele.
+                 // Car c'est la qu'il a des une structure de liste caineées pour naviguer entre les wagons.
+                //this.allerWagonSuivant();
+
+                this.placeOfPersonneInWagon.setPosX(ligne + 1);
             }
         }
         else {// ligne!=1
@@ -72,43 +86,61 @@ private String name;
             }
 
         }
+ */
+       int ligne = this.placeOfPersonneInWagon.getPosX();
+       //int taille=this.wagon.getLongueurWagon();
+       int taille=this.wagon.getDistanceTotalWagonCourant();
+       int longueurTotal=Wagon.getLongueurTotalWagon();
+       int idWagon=this.wagon.getIdWagon();
+
+
+       if ((idWagon >= 1) && (ligne<longueurTotal) ) {
+           if (ligne <= taille) {
+               this.placeOfPersonneInWagon.setPosX(ligne + 1);
+       }
+           else{
+               System.out.println(" On vas au wagon suivant. print données ar Bandit");
+
+           }
+
+
+
+       }
+
+
+
     }
 
+    /** On met cette methode dans le modele **/
     private void allerWagonSuivant() {
         //ici l'enlever dans la liste des banddit présents dans son wagon courant  et
         // et le l'aajouter la liste des bandit du wagon suivant.
 
-
-            int ligne=this.placeOfPersonneInWagon.getPosX();
-            if(ligne<Wagon.getLongueurTotalWagon()){
-                this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
-                this.placeOfPersonneInWagon.setPosX(ligne+1); //.setPostY(ligne+1);
-                this.wagon.addPersonneInWagon(this);
-                this.placeOfPersonneInWagon.setOcupedCelluleInPlateau(true);
-            }
-            else{
-                System.out.println(" On est au dernier wagon. on peut plus avancer  ");
-            }
-
-
-
+        int ligne = this.placeOfPersonneInWagon.getPosX();
+        if (ligne < Wagon.getLongueurTotalWagon()) {
+            this.wagon.setIdWagon(this.wagon.getIdWagon() + 1);
+            this.placeOfPersonneInWagon.setPosX(ligne + 1); //.setPostY(ligne+1);
+            this.wagon.addPersonneInWagon(this);
+            this.placeOfPersonneInWagon.setOcupedCelluleInPlateau(true);
+        } else {
+            System.out.println(" On est au dernier wagon. on peut plus avancer  ");
 
 
 /**
-        this.wagon.retirerPersonneInWagon(this);
-        this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
-        int ligne=this.placeofPersonneInWagon.getPosX();
-        this.placeofPersonneInWagon.setPostY(ligne+1);
-        this.wagon.addPersonneInWagon(this);
-        this.placeofPersonneInWagon.setOcupedCelluleInPlateay(true);
-         */
+ this.wagon.retirerPersonneInWagon(this);
+ this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
+ int ligne=this.placeofPersonneInWagon.getPosX();
+ this.placeofPersonneInWagon.setPostY(ligne+1);
+ this.wagon.addPersonneInWagon(this);
+ this.placeofPersonneInWagon.setOcupedCelluleInPlateay(true);
+ */
 
 
+        }
     }
 
 
-
-    private void reculer() {
+    public void reculer() {
 
         if(this.wagon.getIdWagon()== Wagon.getNbrInstanceWagon()){
             System.out.println(this.name+ " can't move back ! ");
