@@ -70,7 +70,8 @@ public class Personne {
 
     public Personne(String name){
         this.idPerson=++nbInstancePersonne;
-        this.personInSameWagon.add(this);
+        //this.personInSameWagon.add(this);
+        this.name=name;
     }
 
 

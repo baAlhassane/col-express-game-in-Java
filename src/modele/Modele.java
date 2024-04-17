@@ -26,26 +26,107 @@ public class Modele extends  Observable{
 
     private Plateau plateau;
 
-    List<Personne> personnes=new ArrayList<>();
+    Set<Personne> personnes=new HashSet<>();
 
     public Modele(){
 
     }
 
 
-    public void addPersonInWagonModele(Personne p, int numWagon){
+    public void addPersonInWagonModele(Personne p, Wagon w){
         /**
          * cette methode ajoute une personne à l'indice au wagon indice i
          * */
-        trains.get(numWagon).addPersonneInWagon(p);
-        int id=p.getIdPerson();
 
-       for(Personne pp: personnes){
-           if( !(p.equals(pp))){
-               //si c'est une nouvelle personne l'ajouter à à la liste de  personne
-               this.personnes.add(p);
-           }
-       }
+  if(this.trains.isEmpty()){
+      //p.setIdWagonOfPerson(w.getIdWagon());
+      p.setWagon(w);
+      this.personnes.add(p);
+      w.addPersonneInWagon(p);
+      w.setNbrePersoneInWagon(0);
+      //p.setPersonInSameWagon();
+      this.trains.add(w);
+
+  }
+  else{
+
+  if(trains.contains(w)){
+      p.setIdWagonOfPerson(w.getIdWagon());
+      w.addPersonneInWagon(p);
+      p.setWagon(w);
+    int x=  w.getNbrePersoneInWagon();
+    w.setNbrePersonInitialInWagon(x);
+    w.setNbrePersoneInWagon(x+1);
+    w.retirerPersonneInWagon(p);
+    personnes.add(p);
+
+
+  }
+  else {
+      w.addPersonneInWagon(p);
+      p.setIdWagonOfPerson(w.getIdWagon());
+      trains.add(w);
+      personnes.add(p);
+  }
+
+      /**
+  System.out.println("else : ");
+     int i=0;
+     int j=0;
+     Set<Personne> ps=new HashSet<>();
+     LinkedList<Wagon>ls=new LinkedList<>();
+     ls=this.trains;
+      Iterator<Wagon> it=this.trains.iterator();
+     while(it.hasNext()){
+         System.out.println("else : apres it "+  ++j );
+         Wagon ww=it.next();
+
+        int id1= ww.getIdWagon();
+         int id2=w.getIdWagon();
+         System.out.println("else : apres id1 = "+id1 +" , id2 "+ id2 );
+
+         if(id1==id2){
+             System.out.println(" ww iterateur  if ww==ww");
+             ps=ww.getPersonInWagon();
+             ps.add(p);
+             w.setPersonInWagon(ps);
+
+             //this.trains.remove(ww);
+             p.setIdWagonOfPerson(w.getIdWagon());
+             this.personnes.add(p);
+             w.addPersonneInWagon(p);
+             //p.setPersonInSameWagon();
+             //this.trains.add(w);
+
+             i++;
+         }
+
+         else {
+             ps=ww.getPersonInWagon();
+             ps.add(p);
+             w.setPersonInWagon(ps);
+             this.trains.add(w);
+             p.setIdWagonOfPerson(w.getIdWagon());
+             this.personnes.add(p);
+             w.addPersonneInWagon(p);
+             i++;
+         }
+
+
+
+
+     }
+
+
+
+        }//else
+
+  **/
+
+
+
+
+    }
     }
 
 
@@ -86,7 +167,9 @@ public void move(Personne b, Direction d){
             break;
         case AVANT :
             System.out.println(" le movement est vers l' "+d);
+            System.out.println("AVANT "+b.getPlaceOfPersonneInWagon());
             this.avancer(b);
+            System.out.println(" APRES "+b.getPlaceOfPersonneInWagon());
             break;
         case ARRIERE:
             System.out.println(" le movement est vers l'  "+d );
@@ -104,12 +187,20 @@ public void avancer(Personne b){
          * */
     Iterator<Wagon> itW=this.trains.iterator();
     Set<Personne>  listPersonInWagon=new HashSet<>();
+
     while(itW.hasNext()){
         Wagon w= itW.next();
+        System.out.println(" dans le modele avant "+ w.getLongueurWagon());
+        int i=0;
         listPersonInWagon=w.getPersonInWagon();
         for(Personne p: listPersonInWagon){
+            System.out.println(" dans le modele avant "+ p.getName());
             if(p.equals(b)){
-                b.avancer();
+                p.avancer();
+                System.out.println(" dans le modele if");
+                System.out.println(p.getPlaceOfPersonneInWagon());
+                w.getPersonInWagon().add(p);
+                this.personnes.add(p);
                 //int ligne = this.placeOfPersonneInWagon.getPosX();
                 //int ligne=p.getPlaceOfPersonneInWagon().getPosX();
 
@@ -220,8 +311,27 @@ public void avancer(Personne b){
         }
 
 
+    public LinkedList<Wagon> getTrains() {
+        return trains;
+    }
 
+    public void setTrains(LinkedList<Wagon> trains) {
+        this.trains = trains;
+    }
 
+    public Plateau getPlateau() {
+        return plateau;
+    }
 
+    public void setPlateau(Plateau plateau) {
+        this.plateau = plateau;
+    }
 
+    public Set<Personne> getPersonnes() {
+        return personnes;
+    }
+
+    public void setPersonnes(Set<Personne> personnes) {
+        this.personnes = personnes;
+    }
 }

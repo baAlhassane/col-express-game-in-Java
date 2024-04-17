@@ -304,7 +304,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
                 ", nbrePersonInitialInWagon=" + nbrePersonInitialInWagon +
                 ", idWagon=" + idWagon +
                //", p=" + p +
-                ", personInWagon=" + personInWagon +
+               // ", personInWagon=" + personInWagon +
                 '}';
     }
 
@@ -320,5 +320,17 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
             }
         }
         System.out.println(" ------------------------------------------ \n" );
+    }
+
+    public void setNbrePersonInitialInWagon(int nbrePersonInitialInWagon) {
+        this.nbrePersonInitialInWagon = nbrePersonInitialInWagon;
+    }
+
+    public Wagon getWagon() {
+        return wagon;
+    }
+
+    public void setWagon(Wagon wagon) {
+        this.wagon = wagon;
     }
 }

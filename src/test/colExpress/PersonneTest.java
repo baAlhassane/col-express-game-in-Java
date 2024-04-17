@@ -26,6 +26,8 @@ class PersonneTest {
 
         int nbrPeronnes=Personne.getNbInstancePersonne();
 
+
+
         assertEquals(resultIdP1,resultIdAttenduP1);
         assertEquals(resultIdP2,resultIdAttenduP2);
         assertEquals(nbrPeronnes,resultAttenduPourNbrePersonne);

@@ -13,10 +13,12 @@ Map<Butin,Integer> butins=new HashMap<>();
 int dureeVie= (int)(Math.random()*10);
 boolean estVivant=true;
 private String name;
+    private int idPerson;
 
     public Bandit(String name) {
         super(name);
         this.name=name;
+
 
 
     }
@@ -93,8 +95,9 @@ private String name;
        int longueurTotal=Wagon.getLongueurTotalWagon();
        int idWagon=this.wagon.getIdWagon();
 
-
+       this.placeOfPersonneInWagon.setPosX(ligne + 1);
        if ((idWagon >= 1) && (ligne<longueurTotal) ) {
+           this.placeOfPersonneInWagon.setPosX(ligne + 1);
            if (ligne <= taille) {
                this.placeOfPersonneInWagon.setPosX(ligne + 1);
        }
