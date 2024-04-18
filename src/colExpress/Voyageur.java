@@ -19,7 +19,12 @@ public class Voyageur extends Personne {
 
     public Voyageur(String name , Map<Butin,Integer> butins) {
         super(name);
+        this.name=name;
         this.butins=butins;
+    }
+    public Voyageur(String name) {
+        super(name);
+        this.name=name;
     }
 
     public Voyageur( ) {
@@ -33,6 +38,7 @@ public class Voyageur extends Personne {
     public void setButins(Map<Butin,Integer> butins) {
         this.butins = butins;
     }
+
 
     public void crieVoyageur(){
         System.out.println(" oh my goo. Je suis volée");

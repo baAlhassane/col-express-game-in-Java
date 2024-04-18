@@ -217,15 +217,24 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         ++this.nbrePersoneInWagon;
         p.setIdWagonOfPerson(this.getIdWagon());
 
+
         Random r = new Random();
         int n = r.nextInt(6);
         //la place attribue d'une personne dans le wagon est donnée alléatoitement.
         // et des qu'on attribut la classe on lui assigne sont etat a true;
+
+        /**
+         * Cette partie est mis en commentaire après avir créé la methodes
+         * createPersonneWithPosInWagon(TYPEPERSONNE typepersonne, Wagon w,int x, int y)
+         * addPersonneWithPosInWagon(Personne p, Wagon w,int x, int y)
+         * Car elle donne les position alléatoirement.
+         * **/
         this.listPlaceOccuppedByWagon.get(n).setOcupedCelluleInPlateau(true);
         this.listPlaceOccuppedByWagon.get(n).setOccupedByWagon(true);
         this.listPlaceOccuppedByWagon.get(n).setOccupedByPersonInWagon(true);
         System.out.println("on est dans add wagon n° "+this.idWagon+" n = "+n+" , "+this.listPlaceOccuppedByWagon.get(n));
        p.setPlaceOfPersonneInWagon(this.listPlaceOccuppedByWagon.get(n));
+
 
     }
 

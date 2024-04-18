@@ -90,12 +90,23 @@ class ModeleTest {
         m.addPersonInWagonModele(bandit1,w1);
         m.addPersonInWagonModele(p2,w2);
 
+        System.out.println("Deplacement personne "+p1.getName());
+        System.out.println("------------------ Les autres personnes ne bougent pas sauf les bandits ---------------------");
+        System.out.println("position initiale personne ");
+        System.out.println(bandit.getPlaceOfPersonneInWagon());
+        //m.move(bandit, Direction.AVANT);
+        m.move(p1,Direction.AVANT);
+        System.out.println("position personne apres avancer ");
+        System.out.println(bandit.getPlaceOfPersonneInWagon());
+
+
+
         System.out.println("Deplacement bandit "+bandit.getName());
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit ");
         System.out.println(bandit.getPlaceOfPersonneInWagon());
         //m.move(bandit, Direction.AVANT);
-        m.avancer(bandit);
+        m.move(bandit,Direction.AVANT);
         System.out.println("position bandit apres avancer ");
         System.out.println(bandit.getPlaceOfPersonneInWagon());
 
@@ -127,5 +138,39 @@ class ModeleTest {
 
     @Test
     void descendre() {
+    }
+
+    @Test
+    void addPersonneWithPosInWagon() {
+
+        Modele m=new Modele();
+        Plateau plateau=new Plateau(m);
+        //LinkedList<Wagon> trains= new LinkedList<>();
+        Wagon w1=new Wagon();
+        Wagon w2=new Wagon();
+        Wagon w3=new Wagon();
+
+
+        Personne p1=new Personne("alhas");
+        Personne p2=new Personne("alhous");
+        Personne p3=new Personne("dios");
+        Personne p4=new Personne("fily");
+        Personne p5=new Bandit("Bandit");
+
+
+        m.addPersonInWagonModele(p1,w1);
+        m.addPersonInWagonModele(p2,w2);
+        m.addPersonInWagonModele(p3,w3);
+        m.addPersonInWagonModele(p4,w1);
+        m.addPersonInWagonModele(p1,w3);
+        m.addPersonInWagonModele(p5,w2);
+
+        //assertEquals(trains,m.getTrains());
+        System.out.println(m.getPersonnes());
+        System.out.println(m.getTrains());
+
+
+
+
     }
 }

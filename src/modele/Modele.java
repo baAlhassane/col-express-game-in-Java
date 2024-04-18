@@ -1,10 +1,8 @@
 package modele;
 
-import colExpress.Bandit;
-import colExpress.Direction;
+import colExpress.*;
+import plateau.Cellule;
 import plateau.Plateau;
-import colExpress.Personne;
-import colExpress.Wagon;
 
 import java.util.*;
 
@@ -167,9 +165,7 @@ public void move(Personne b, Direction d){
             break;
         case AVANT :
             System.out.println(" le movement est vers l' "+d);
-            System.out.println("AVANT "+b.getPlaceOfPersonneInWagon());
             this.avancer(b);
-            System.out.println(" APRES "+b.getPlaceOfPersonneInWagon());
             break;
         case ARRIERE:
             System.out.println(" le movement est vers l'  "+d );
@@ -190,16 +186,14 @@ public void avancer(Personne b){
 
     while(itW.hasNext()){
         Wagon w= itW.next();
-        System.out.println(" dans le modele avant "+ w.getLongueurWagon());
         int i=0;
         listPersonInWagon=w.getPersonInWagon();
         for(Personne p: listPersonInWagon){
-            System.out.println(" dans le modele avant "+ p.getName());
             if(p.equals(b)){
                 p.avancer();
-                System.out.println(" dans le modele if");
-                System.out.println(p.getPlaceOfPersonneInWagon());
-                w.getPersonInWagon().add(p);
+               // System.out.println(" dans le modele if");
+                //System.out.println(p.getPlaceOfPersonneInWagon()+" donnees par le modele !");
+                //w.getPersonInWagon().add(p);
                 this.personnes.add(p);
                 //int ligne = this.placeOfPersonneInWagon.getPosX();
                 //int ligne=p.getPlaceOfPersonneInWagon().getPosX();
@@ -334,4 +328,120 @@ public void avancer(Personne b){
     public void setPersonnes(Set<Personne> personnes) {
         this.personnes = personnes;
     }
+
+
+    /**
+     * Jussqu'à l'a nous avons on a jouter une personne et on l'a ttribué une place alléatoite
+     * Mainenant on va lui données une place dans le wagon.
+     *
+     */
+
+
+    public void addWagonInTrain(Wagon w){
+   if(!this.trains.contains(w) || this.trains.isEmpty()){
+       this.trains.add(w);
+   }
+   else {
+       System.out.println(" trains contient deja ce wagon !");
+       return;
+   }
+
+    }
+    public void createPersonneWithPosInWagon(TYPEPERSONNE typepersonne, Wagon w, int numPlace){
+        List<Cellule> places=new ArrayList<>();
+        places=w.getListPlaceOccuppedByWagon();
+        int nbreplaceMax =w.getLongueurWagon();
+        switch (typepersonne){
+            case BANDIT -> {Bandit b= new Bandit("bandit"+w.getNbrePersoneInWagon()+1);this.addBanditWithPosInWagon(b,w,numPlace);}
+            case MARSHAL ->{Marshal m= new Marshal(w);System.out.println(" cette placce n'exise pas pour les bandits . ");this.addMarshaltWithPosInWagon(m,w,numPlace);}
+            case VOYAGEUR -> { Voyageur v= new Voyageur("bandit"+w.getNbrePersoneInWagon()+1);this.addVoyageurWithPosInWagon(v,w,numPlace);}
+
+        }
+
+
+    }
+    public void addVoyageurWithPosInWagon(Personne p, Wagon w,int numPlace){
+        List<Cellule> places=new ArrayList<>();
+        places=w.getListPlaceOccuppedByWagon();
+        int nbreplaceMax =w.getLongueurWagon();
+
+
+
+        if(  (numPlace<= nbreplaceMax) && (numPlace>0) ){
+           // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
+            p.setWagon(w);
+            p.setPersonInSameWagon(w.getPersonInWagon());
+            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+            p.setIdWagonOfPerson(w.getIdWagon());
+            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
+            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+
+            this.personnes.add(p);
+            this.addWagonInTrain(w);
+            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+
+        }
+        else {
+            System.out.println(" cette placce n'exise pas pour les voyageurs . ");
+        }
+
+
+    }
+
+
+
+    public void addBanditWithPosInWagon(Personne p, Wagon w,int numPlace){
+        List<Cellule> places=new ArrayList<>();
+        places=w.getListPlaceOccuppedByWagon();
+        int nbreplaceMax =w.getLongueurWagon();
+
+
+
+        if(  (numPlace<= places.size()) && (numPlace>0) ){
+            // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
+            p.setWagon(w);
+            p.setPersonInSameWagon(w.getPersonInWagon());
+            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+            p.setIdWagonOfPerson(w.getIdWagon());
+            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
+            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+            this.personnes.add(p);
+            this.addWagonInTrain(w);
+            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+
+        }
+        else {
+            System.out.println(" cette placce n'exise pas pour les bandits . ");
+        }
+
+
+    }
+
+    public void addMarshaltWithPosInWagon(Personne p, Wagon w,int numPlace){
+        List<Cellule> places=new ArrayList<>();
+        places=w.getListPlaceOccuppedByWagon();
+        int nbreplaceMax =w.getLongueurWagon();
+
+        if((w.getIdWagon()==1) && (numPlace<= places.size())){
+            p.setWagon(w);
+            p.setPersonInSameWagon(w.getPersonInWagon());
+            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+            p.setIdWagonOfPerson(w.getIdWagon());
+            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
+            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+            this.personnes.add(p);
+            this.addWagonInTrain(w);
+            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+
+        }
+        else {
+            System.out.println(" Le numero wago doit etre = 1.  cette placce n'exise pas pour le marcshal. ");
+        }
+
+
+
+
+
+    }
+
 }
