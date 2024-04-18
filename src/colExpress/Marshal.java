@@ -6,7 +6,7 @@ public class Marshal extends Personne {
      * */
     private Direction direction=Direction.IMMOBILE;
     private Butin arme=Butin.ARME;
-    private Wagon locomotive=new Locomotive();
+    //private Wagon locomotive=new Locomotive();
     public Marshal( Wagon wagon) {
         super(wagon);
         this.setName("Marshal");

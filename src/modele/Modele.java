@@ -30,7 +30,9 @@ public class Modele extends  Observable{
 
     }
 
-
+/**
+ * Cette methode add des personne mais donnes des places alléatoirement.
+ * **/
     public void addPersonInWagonModele(Personne p, Wagon w){
         /**
          * cette methode ajoute une personne à l'indice au wagon indice i
@@ -183,29 +185,40 @@ public void avancer(Personne b){
          * */
     Iterator<Wagon> itW=this.trains.iterator();
     Set<Personne>  listPersonInWagon=new HashSet<>();
-
+    int i=0;
     while(itW.hasNext()){
         Wagon w= itW.next();
-        int i=0;
+        //A revoir get personn in wagon est null
+
+        System.out.println(" Avancercer dans le modele avant le if "+w);
         listPersonInWagon=w.getPersonInWagon();
+        if(listPersonInWagon.isEmpty()){
+            System.out.println(" XXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx contains b   "+b);
+
+        }
+        System.out.println( "  listPersonInWagon "+ listPersonInWagon);
+
+
         for(Personne p: listPersonInWagon){
-            if(p.equals(b)){
-                p.avancer();
+
+            if(p.getIdPerson()==b.getIdPerson()){
+                System.out.println(" Avancercer dans le modele apres le if ");
+                b.avancer();
                // System.out.println(" dans le modele if");
                 //System.out.println(p.getPlaceOfPersonneInWagon()+" donnees par le modele !");
                 //w.getPersonInWagon().add(p);
-                this.personnes.add(p);
+                this.personnes.add(b);
                 //int ligne = this.placeOfPersonneInWagon.getPosX();
                 //int ligne=p.getPlaceOfPersonneInWagon().getPosX();
 
-                int ligne = p.getPlaceOfPersonneInWagon().getPosX();
+                int ligne = b.getPlaceOfPersonneInWagon().getPosX();
                 //int taille=this.wagon.getLongueurWagon();
-                int taille=p.getWagon().getDistanceTotalWagonCourant();
+                int taille=b.getWagon().getDistanceTotalWagonCourant();
                 int longueurTotal=Wagon.getLongueurTotalWagon();
                 int idWagon=w.getIdWagon();
 
-                if(( ligne<longueurTotal) && (ligne>taille)){
-                    this.allerWagonSuivant();
+                if( (ligne>taille) && ( ligne<longueurTotal) ){
+                    this.allerWagonSuivant(p);
                 }
 
 
@@ -267,7 +280,7 @@ public void avancer(Personne b){
 
 
 
-    private void allerWagonSuivant() {
+    private void allerWagonSuivant(Personne p) {
         //ici l'enlever dans la liste des banddit présents dans son wagon courant  et
         // et le l'aajouter la liste des bandit du wagon suivant.
 
@@ -279,11 +292,12 @@ public void avancer(Personne b){
         int lastIndex=trains.size()-1;
         int i=0;
         while(itW.hasNext()){
-            i++;
-        }
+
             Wagon w= itW.next();
             int distanceTotalWagonCourant=w.getDistanceTotalWagonCourant();// la plus grand numero de ligne du wagon courant
             listPersonInWagon=w.getPersonInWagon();
+
+            /** on utiliset listPersonInWagon=.containn(p) c'est plus opimal que de utiliser le code suivant.
             for(Personne pp: listPersonInWagon){
                // this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
                // this.placeOfPersonneInWagon.setPosX(ligne+1); //.setPostY(ligne+1);
@@ -302,7 +316,26 @@ public void avancer(Personne b){
   }
             }
             }
+            **/
+
+            if(listPersonInWagon.contains(p) && (i<lastIndex)){
+                Wagon suivant=trains.get(i+1);
+                int ligne=p.getPlaceOfPersonneInWagon().getPosX();
+                this.removeExistingPersonInWagon(p,w);
+                this.addBanditWithPosInWagon(p,w,ligne);
+
+
+            }
+
+
+
+
+            i++;
         }
+
+        }
+
+
 
 
     public LinkedList<Wagon> getTrains() {
@@ -338,7 +371,7 @@ public void avancer(Personne b){
 
 
     public void addWagonInTrain(Wagon w){
-   if(!this.trains.contains(w) || this.trains.isEmpty()){
+   if(!(this.trains.contains(w) )|| this.trains.isEmpty()){
        this.trains.add(w);
    }
    else {
@@ -347,16 +380,30 @@ public void avancer(Personne b){
    }
 
     }
-    public void createPersonneWithPosInWagon(TYPEPERSONNE typepersonne, Wagon w, int numPlace){
+    public Personne createNewPersonneWithPosInWagon(TYPEPERSONNE typepersonne, Wagon w, int numPlace){
         List<Cellule> places=new ArrayList<>();
         places=w.getListPlaceOccuppedByWagon();
         int nbreplaceMax =w.getLongueurWagon();
+        System.out.println("o on est dans Createde personne type "+ typepersonne);
         switch (typepersonne){
-            case BANDIT -> {Bandit b= new Bandit("bandit"+w.getNbrePersoneInWagon()+1);this.addBanditWithPosInWagon(b,w,numPlace);}
-            case MARSHAL ->{Marshal m= new Marshal(w);System.out.println(" cette placce n'exise pas pour les bandits . ");this.addMarshaltWithPosInWagon(m,w,numPlace);}
-            case VOYAGEUR -> { Voyageur v= new Voyageur("bandit"+w.getNbrePersoneInWagon()+1);this.addVoyageurWithPosInWagon(v,w,numPlace);}
+            case BANDIT -> {Bandit b= new Bandit("bandit"+w.getNbrePersoneInWagon()+1);
+                              this.addBanditWithPosInWagon(b,w,numPlace);
+                              System.out.println(" personne type "+ typepersonne+ " is created Successfullly" );
+                              return  b;
+
+                            }
+            case MARSHAL ->{Marshal m= new Marshal(w);
+                               this.addMarshaltWithPosInWagon(m,w,numPlace);
+                               return m;
+                           }
+            case VOYAGEUR -> { Voyageur v= new Voyageur("bandit"+w.getNbrePersoneInWagon()+1);
+                              System.out.println(" personne type "+ typepersonne+ " is created Successfullly" );
+                             this.addVoyageurWithPosInWagon(v,w,numPlace);
+                             return v;
+                             }
 
         }
+        return null;
 
 
     }
@@ -366,7 +413,6 @@ public void avancer(Personne b){
         int nbreplaceMax =w.getLongueurWagon();
 
 
-
         if(  (numPlace<= nbreplaceMax) && (numPlace>0) ){
            // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
             p.setWagon(w);
@@ -374,15 +420,19 @@ public void avancer(Personne b){
             w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
             p.setIdWagonOfPerson(w.getIdWagon());
             Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
+            c.setOccupedByWagon(true);
+            c.setOccupedByPersonInWagon(true);
+            c.setOcupedCelluleInPlateau(true);
             p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
 
             this.personnes.add(p);
             this.addWagonInTrain(w);
-            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+
+            System.out.println("on est dans addvoyageur  wagon n° "+w.getIdWagon()+"\nnumero  place  = "+numPlace+" , "+ "\nplace = "+p.getPlaceOfPersonneInWagon());
 
         }
         else {
-            System.out.println(" cette placce n'exise pas pour les voyageurs . ");
+            System.out.println(" Les places des voyageur doivent etre contenu entre  "+1 +" et nbre et la taille du wagon = "+ nbreplaceMax) ;
         }
 
 
@@ -395,8 +445,6 @@ public void avancer(Personne b){
         places=w.getListPlaceOccuppedByWagon();
         int nbreplaceMax =w.getLongueurWagon();
 
-
-
         if(  (numPlace<= places.size()) && (numPlace>0) ){
             // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
             p.setWagon(w);
@@ -407,11 +455,13 @@ public void avancer(Personne b){
             p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
             this.personnes.add(p);
             this.addWagonInTrain(w);
-            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+            System.out.println("on est dans addBandi wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
 
         }
         else {
-            System.out.println(" cette placce n'exise pas pour les bandits . ");
+            System.out.println(" Les places du bandit doivent etre continue entre  "+1 +" et "+ places.size()) ;
+            throw new IllegalArgumentException("  le marshal doit etre dans le wagon num 1 et ");
+
         }
 
 
@@ -431,16 +481,20 @@ public void avancer(Personne b){
             p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
             this.personnes.add(p);
             this.addWagonInTrain(w);
-            System.out.println("on est dans add wagon n° "+w.getWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+            System.out.println("on est dans add Marshal  wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
 
         }
         else {
             System.out.println(" Le numero wago doit etre = 1.  cette placce n'exise pas pour le marcshal. ");
+            throw new IllegalArgumentException("  le marshal doit etre dans le wagon num 1 et ");
         }
 
 
+    }
 
 
+    public void removeExistingPersonInWagon(Personne p, Wagon w){
+        w.retirerPersonneInWagon(p);
 
     }
 

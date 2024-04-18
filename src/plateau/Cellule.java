@@ -100,7 +100,9 @@ public class Cellule  {
         return "Cellule{" +
                 "posX=" + posX +
                 ", postY=" + postY +
-                ", ocupedCelluleInPlateay=" + ocupedCelluleInPlateau +
+                ", ocupedCelluleInPlateau=" + ocupedCelluleInPlateau +
+                ", isOccupedByWagon=" + isOccupedByWagon +
+                ", isOccupedByPersonInWagon=" + isOccupedByPersonInWagon +
                 '}';
     }
 }

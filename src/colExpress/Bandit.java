@@ -46,75 +46,53 @@ private String name;
          */
 
 
-
-/**
- * int ligne = this.placeOfPersonneInWagon.getPosX();
- *         int taille=this.wagon.getLongueurWagon();
-        if (this.wagon.getIdWagon() == 1) {
-            if (ligne < taille) {
-                this.placeOfPersonneInWagon.setPosX(ligne + 1);
-            } else {
-                System.out.println(this.name + " can't move forward  ! ");
-                System.out.println(this.name + " sort du  wagon N° " + this.wagon.getIdWagon());
-                System.out.println("pour aller au wagon suivant ");
-
-               //  *on enleve aller au wagon suivant et on le met dans le modele.
-                 // Car c'est la qu'il a des une structure de liste caineées pour naviguer entre les wagons.
-                //this.allerWagonSuivant();
-
-                this.placeOfPersonneInWagon.setPosX(ligne + 1);
-            }
-        }
-        else {// ligne!=1
-           // int lastLineW = this.wagon.getIdWagon() * taille - 2 + 2;
-            if (ligne%taille != 0  ) {
-                //ligne*3-2+i avec i=numero de ligne du wagon. De valeur max=2
-                //this.placeofPersonneInWagon.setPosX(ligne+1);
-                //this.allerWagonSuivant();
-                this.placeOfPersonneInWagon.setPosX(ligne + 1);
-
-            } else {// ligne%taille==0)
-                if (ligne < taille*this.wagon.getIdWagon()) {
-                    //passer au wagon suivant
-                    //System.out.println(" ");
-                    //this.allerWagonSuivant();
-                    this.placeOfPersonneInWagon.setPosX(ligne + 1);
-                } else {
-                    if (ligne == Wagon.getLongueurTotalWagon()) {
-                        System.out.println(" On est au dernier wagon. ");
-                        System.out.println(" On peux plus avancer ");
-                    }
-                }
-            }
-
-        }
- */
        int ligne = this.placeOfPersonneInWagon.getPosX();
        //int taille=this.wagon.getLongueurWagon();
-       int taille=this.wagon.getDistanceTotalWagonCourant();
+       int distance=this.wagon.getDistanceTotalWagonCourant();
+
+       System.out.println(" avancer dans bandit");
+       System.out.println(" wagon id "+this.wagon);
+       int longueurTotal=Wagon.getLongueurTotalWagon();
+       int idWagon=this.wagon.getIdWagon();
+       if(ligne<distance){
+           System.out.println(" avancer dans bandit");
+           this.placeOfPersonneInWagon.setPosX(ligne+1);
+       }
+
+
+
+/*
+      // tout ca est pris en compte par lemodele. C'est pour cela on la mis en commentaire
+
+       int ligne = this.placeOfPersonneInWagon.getPosX();
+       //int taille=this.wagon.getLongueurWagon();
+       int distance=this.wagon.getDistanceTotalWagonCourant();
        int longueurTotal=Wagon.getLongueurTotalWagon();
        int idWagon=this.wagon.getIdWagon();
 
-       this.placeOfPersonneInWagon.setPosX(ligne + 1);
-       if ((idWagon >= 1) && (ligne<longueurTotal) ) {
+       //this.placeOfPersonneInWagon.setPosX(ligne + 1);
+       if ((idWagon >= 1) && (ligne<distance) ) {
+           System.out.println(" avancer badit  XXXXX");
+           //this.placeOfPersonneInWagon.setPosX(ligne + 1);
+
            this.placeOfPersonneInWagon.setPosX(ligne + 1);
-           if (ligne <= taille) {
-               this.placeOfPersonneInWagon.setPosX(ligne + 1);
-       }
-           else{
-               System.out.println(" On vas au wagon suivant. print données ar Bandit");
-
-           }
-
-
 
        }
+       else {
+           System.out.println(" un pas de plus on sort du wagon. ");
+          // this.allerWagonSuivant();
+       }
+
+ */
+
+
 
 
 
     }
 
     /** On met cette methode dans le modele **/
+    /** Mes cette methode est utiliser pour faire des tests avant que me modele ne soit données.**/
     private void allerWagonSuivant() {
         //ici l'enlever dans la liste des banddit présents dans son wagon courant  et
         // et le l'aajouter la liste des bandit du wagon suivant.
