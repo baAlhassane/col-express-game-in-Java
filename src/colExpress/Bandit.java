@@ -15,9 +15,12 @@ boolean estVivant=true;
 private String name;
     private int idPerson;
 
+
     public Bandit(String name) {
         super(name);
         this.name=name;
+        this.setIdWagonOfPerson(this.getIdPerson());
+        this.idPerson=super.getIdPerson();
 
 
 
@@ -25,8 +28,15 @@ private String name;
 
 
 
+
+
+
     public Bandit( Wagon wagon) {
         super( wagon);
+    }
+
+    public Bandit( ) {
+        super( );
     }
 
     public void evolutionBandit(){
@@ -50,41 +60,14 @@ private String name;
        //int taille=this.wagon.getLongueurWagon();
        int distance=this.wagon.getDistanceTotalWagonCourant();
 
-       System.out.println(" avancer dans bandit");
+       //System.out.println(" avancer dans bandit");
        System.out.println(" wagon id "+this.wagon);
        int longueurTotal=Wagon.getLongueurTotalWagon();
        int idWagon=this.wagon.getIdWagon();
        if(ligne<distance){
-           System.out.println(" avancer dans bandit");
+          // System.out.println(" avancer dans bandit");
            this.placeOfPersonneInWagon.setPosX(ligne+1);
        }
-
-
-
-/*
-      // tout ca est pris en compte par lemodele. C'est pour cela on la mis en commentaire
-
-       int ligne = this.placeOfPersonneInWagon.getPosX();
-       //int taille=this.wagon.getLongueurWagon();
-       int distance=this.wagon.getDistanceTotalWagonCourant();
-       int longueurTotal=Wagon.getLongueurTotalWagon();
-       int idWagon=this.wagon.getIdWagon();
-
-       //this.placeOfPersonneInWagon.setPosX(ligne + 1);
-       if ((idWagon >= 1) && (ligne<distance) ) {
-           System.out.println(" avancer badit  XXXXX");
-           //this.placeOfPersonneInWagon.setPosX(ligne + 1);
-
-           this.placeOfPersonneInWagon.setPosX(ligne + 1);
-
-       }
-       else {
-           System.out.println(" un pas de plus on sort du wagon. ");
-          // this.allerWagonSuivant();
-       }
-
- */
-
 
 
 
@@ -237,7 +220,18 @@ public void voler(Voyageur v){
 
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Bandit{" +
+               // "directionBandandi=" + directionBandandi +
+               // ", evironnementBandit=" + evironnementBandit +
+                //", butins=" + butins +
+               // ", dureeVie=" + dureeVie +
+               // ", estVivant=" + estVivant +
+                " name='" + name + '\'' +
+                ", idPerson=" + this.getIdPerson()+
+                 ", idWagon="+this.getIdWagonOfPerson()+
+                ", placeOfPersonneInWagon=" + placeOfPersonneInWagon +
+                '}';
+    }
 }

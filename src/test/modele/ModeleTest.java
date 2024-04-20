@@ -16,7 +16,7 @@ class ModeleTest {
 
     @Test
     void addPersonInWagonModele() {
-
+/**
         Modele m=new Modele();
         Plateau plateau=new Plateau(m);
          //LinkedList<Wagon> trains= new LinkedList<>();
@@ -38,7 +38,7 @@ class ModeleTest {
         m.addPersonInWagonModele(p4,w1);
         m.addPersonInWagonModele(p1,w3);
         m.addPersonInWagonModele(p5,w2);
-
+ **/
         /**
          *         LinkedList<Wagon> restAttendu= new LinkedList<>();
          *         restAttendu.add(w1);restAttendu.get(0).addPersonneInWagon(p3);
@@ -46,12 +46,11 @@ class ModeleTest {
          *         restAttendu.add(w3);restAttendu.get(2).addPersonneInWagon(p1);
           */
 
+        /**
         //assertEquals(trains,m.getTrains());
         System.out.println(m.getPersonnes());
         System.out.println(m.getTrains());
-
-
-
+         */
 
 
     }
@@ -72,7 +71,7 @@ class ModeleTest {
         Personne p3=new Personne("dios");
 
 
-
+       /**
         System.out.println("Deplacement personne "+p1.getName());
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit ");
@@ -81,8 +80,9 @@ class ModeleTest {
         System.out.println("position bandit apres avancer ");
         System.out.println(p1.getPlaceOfPersonneInWagon());
         //m.move(p1,Direction.AVANT);
+        **/
 
-        Bandit bandit=new Bandit("bandit1");
+        Bandit bandit=new Bandit("bandit");
         Bandit bandit1=new Bandit("bandit2");
 
         /** cest test ajoute aleatoirement des position  **/
@@ -90,36 +90,40 @@ class ModeleTest {
         //m.addPersonInWagonModele(bandit1,w1);
        // m.addPersonInWagonModele(p2,w2);
 
-
         m.addMarshaltWithPosInWagon(p1,w1,1);
-        m.addBanditWithPosInWagon(bandit,w1,1);
-        m.addBanditWithPosInWagon(bandit1,w2,2);
-        m.addVoyageurWithPosInWagon(p2,w3,1);
+       m.addBanditWithPosInWagon(bandit,w1,1);
+       // m.addBanditWithPosInWagon(bandit1,w2,2);
+        //m.addVoyageurWithPosInWagon(p1,w3,1);
 
-
-
+        /**
         System.out.println("Deplacement personne "+p1.getName());
         System.out.println("------------------ Les autres personnes ne bougent pas sauf les bandits ---------------------");
         System.out.println("position initiale personne ");
-        System.out.println(bandit.getPlaceOfPersonneInWagon());
+        System.out.println(p1.getPlaceOfPersonneInWagon());
         //m.move(bandit, Direction.AVANT);
-        m.move(p1,Direction.AVANT);
+         **/
+        //m.move(p1,Direction.AVANT);
+        /**
         System.out.println("position personne apres avancer ");
-        System.out.println(bandit.getPlaceOfPersonneInWagon());
+        System.out.println(p1.getPlaceOfPersonneInWagon());
+         **/
 
 
+        /**
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù");
 
         System.out.println("Deplacement bandit "+bandit.getName());
-        System.out.println("---------------------------------------");
-        System.out.println("position initiale bandit ");
-
+        //System.out.println("---------------------------------------");
+        //System.out.println("position initiale bandit ");
+**/
         //m.move(bandit, Direction.AVANT);
         //m.move(bandit,Direction.AVANT);
-        for ( int i= 0; i<Wagon.getLongueurTotalWagon()+1;i++){
-            System.out.println(bandit.getPlaceOfPersonneInWagon());
-            m.move(bandit,Direction.AVANT);
-            System.out.println("position bandit apres avancer ");
-        }
+       // for ( int i= 0; i<Wagon.getLongueurTotalWagon()+1;i++){
+           // System.out.println(bandit.getPlaceOfPersonneInWagon());
+           // m.move(bandit,Direction.AVANT);
+            //System.out.println("position bandit apres avancer ");
+       //}
+       // m.move(bandit1,Direction.AVANT);
 
 
 

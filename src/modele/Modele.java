@@ -69,61 +69,6 @@ public class Modele extends  Observable{
       personnes.add(p);
   }
 
-      /**
-  System.out.println("else : ");
-     int i=0;
-     int j=0;
-     Set<Personne> ps=new HashSet<>();
-     LinkedList<Wagon>ls=new LinkedList<>();
-     ls=this.trains;
-      Iterator<Wagon> it=this.trains.iterator();
-     while(it.hasNext()){
-         System.out.println("else : apres it "+  ++j );
-         Wagon ww=it.next();
-
-        int id1= ww.getIdWagon();
-         int id2=w.getIdWagon();
-         System.out.println("else : apres id1 = "+id1 +" , id2 "+ id2 );
-
-         if(id1==id2){
-             System.out.println(" ww iterateur  if ww==ww");
-             ps=ww.getPersonInWagon();
-             ps.add(p);
-             w.setPersonInWagon(ps);
-
-             //this.trains.remove(ww);
-             p.setIdWagonOfPerson(w.getIdWagon());
-             this.personnes.add(p);
-             w.addPersonneInWagon(p);
-             //p.setPersonInSameWagon();
-             //this.trains.add(w);
-
-             i++;
-         }
-
-         else {
-             ps=ww.getPersonInWagon();
-             ps.add(p);
-             w.setPersonInWagon(ps);
-             this.trains.add(w);
-             p.setIdWagonOfPerson(w.getIdWagon());
-             this.personnes.add(p);
-             w.addPersonneInWagon(p);
-             i++;
-         }
-
-
-
-
-     }
-
-
-
-        }//else
-
-  **/
-
-
 
 
     }
@@ -155,6 +100,8 @@ public void move(Personne b, Direction d){
         /**
          * Faite avancer la personne p */
     Direction direction;
+    System.out.print("\n ######################### debut de chaque mouvement de "+ b.getName() +"   ############################ \n");
+    System.out.print(" \n position  avant move \n = : (posX = "+b.getPlaceOfPersonneInWagon().getPosX()+" posY = "+b.getPlaceOfPersonneInWagon().getPostY() + " : \n");
     switch( d )
     {
         case HAUT:
@@ -176,6 +123,9 @@ public void move(Personne b, Direction d){
             System.out.println(d);
     }
 
+    System.out.print(" \n pos apres move \n = : (posX = "+b.getPlaceOfPersonneInWagon().getPosX()+" posY = "+b.getPlaceOfPersonneInWagon().getPostY() +" \n");
+    System.out.print(" \n ######################### Fin de chaque mouvement de "+ b.getName() + " ############################ \n ");
+
 
 }
 
@@ -186,47 +136,43 @@ public void avancer(Personne b){
     Iterator<Wagon> itW=this.trains.iterator();
     Set<Personne>  listPersonInWagon=new HashSet<>();
     int i=0;
+    int j=0;
+    int nbreInstance=0;
+    Wagon updateWagon=new Wagon();
+    Wagon.setNbrInstanceWagon(Wagon.getNbrInstanceWagon()-1);
+    Wagon removeWagon=new Wagon();
+    Wagon.setNbrInstanceWagon(Wagon.getNbrInstanceWagon()-1);
+
     while(itW.hasNext()){
         Wagon w= itW.next();
-        //A revoir get personn in wagon est null
+        removeWagon= new  Wagon(w);
+        updateWagon=new  Wagon(w);
 
-        System.out.println(" Avancercer dans le modele avant le if "+w);
-        listPersonInWagon=w.getPersonInWagon();
-        if(listPersonInWagon.isEmpty()){
-            System.out.println(" XXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx contains b   "+b);
-
+       // System.out.println(" Avancercer dans le modele avant le if w = "+w);
+        listPersonInWagon=removeWagon.getPersonInWagon();
+        if(listPersonInWagon.contains(b)){
+            System.out.println("\n wagon "+ w.getIdWagon()+"  contains "+  b.getName()+ "  in Model.avancer   :   \n"+b+ "\n");
+            b.avancer();
+            this.personnes.add(b);
+            //listPersonInWagon.add(b);
+            removeWagon.setPersonInWagon(listPersonInWagon);
+            updateWagon=removeWagon;
+            updateWagon.setPersonInWagon(removeWagon.getPersonInWagon());
+             j=i;
         }
-        System.out.println( "  listPersonInWagon "+ listPersonInWagon);
+        //System.out.println( "  listPersonInWagon "+ listPersonInWagon);
 
 
-        for(Personne p: listPersonInWagon){
-
-            if(p.getIdPerson()==b.getIdPerson()){
-                System.out.println(" Avancercer dans le modele apres le if ");
-                b.avancer();
-               // System.out.println(" dans le modele if");
-                //System.out.println(p.getPlaceOfPersonneInWagon()+" donnees par le modele !");
-                //w.getPersonInWagon().add(p);
-                this.personnes.add(b);
-                //int ligne = this.placeOfPersonneInWagon.getPosX();
-                //int ligne=p.getPlaceOfPersonneInWagon().getPosX();
-
-                int ligne = b.getPlaceOfPersonneInWagon().getPosX();
-                //int taille=this.wagon.getLongueurWagon();
-                int taille=b.getWagon().getDistanceTotalWagonCourant();
-                int longueurTotal=Wagon.getLongueurTotalWagon();
-                int idWagon=w.getIdWagon();
-
-                if( (ligne>taille) && ( ligne<longueurTotal) ){
-                    this.allerWagonSuivant(p);
-                }
-
-
-            }
-
-        }
+        i++;
 
     }
+
+    this.trains.remove(removeWagon);
+    //updateWagon.setNbrePersoneInWagon();
+    this.trains.add(j,updateWagon);
+
+
+
 }
 
     public void reculer(Personne b){
@@ -293,30 +239,10 @@ public void avancer(Personne b){
         int i=0;
         while(itW.hasNext()){
 
-            Wagon w= itW.next();
+            Wagon w=new Wagon(itW.next());
             int distanceTotalWagonCourant=w.getDistanceTotalWagonCourant();// la plus grand numero de ligne du wagon courant
             listPersonInWagon=w.getPersonInWagon();
 
-            /** on utiliset listPersonInWagon=.containn(p) c'est plus opimal que de utiliser le code suivant.
-            for(Personne pp: listPersonInWagon){
-               // this.wagon.setIdWagon(this.wagon.getIdWagon()+1);
-               // this.placeOfPersonneInWagon.setPosX(ligne+1); //.setPostY(ligne+1);
-                //this.wagon.addPersonneInWagon(this);
-                //this.placeOfPersonneInWagon.setOcupedCelluleInPlateau(true);
-                int ligne=pp.getPlaceOfPersonneInWagon().getPosX();
-                if(ligne>distanceTotalWagonCourant){
-                System.out.println("on change de wage. le chagement est effectué dans le modele");
-  if(i<lastIndex){
-      Wagon suivant=trains.get(i+1);// le wagon suivant.
-      pp.setWagon(suivant);// i va de 0 à trains.size()-2;
-      //suivant.addPersonneInWagon(p);
-      trains.get(i+1).addPersonneInWagon(pp);
-     // w.retirerPersonneInWagon(p);
-      trains.get(i).retirerPersonneInWagon(pp);
-  }
-            }
-            }
-            **/
 
             if(listPersonInWagon.contains(p) && (i<lastIndex)){
                 Wagon suivant=trains.get(i+1);
@@ -326,9 +252,6 @@ public void avancer(Personne b){
 
 
             }
-
-
-
 
             i++;
         }
@@ -375,7 +298,7 @@ public void avancer(Personne b){
        this.trains.add(w);
    }
    else {
-       System.out.println(" trains contient deja ce wagon !");
+       System.out.println(" \n trains contient deja ce wagon ! \n");
        return;
    }
 
@@ -409,26 +332,65 @@ public void avancer(Personne b){
     }
     public void addVoyageurWithPosInWagon(Personne p, Wagon w,int numPlace){
         List<Cellule> places=new ArrayList<>();
+        List<Cellule> places1=new ArrayList<>();
+
+
+
+
         places=w.getListPlaceOccuppedByWagon();
         int nbreplaceMax =w.getLongueurWagon();
 
 
+        //Cellule c=new Cellule(this,places.get(numPlace-1).getPosX(),places.get(numPlace-1).getPostY());
+
+        // on ne chisit que les places paires qui son les  ligne de matrice
+        places=w.getListPlaceOccuppedByWagon();
+        for(int i=0;i<places.size()-1;i++){
+            if(i%2==0){
+                places1.add(i, places.remove(i));
+            }
+            else{
+                places1.add(places.remove(i));
+
+            }
+        }
+
+        Cellule c=places1.get(numPlace-1);
+
+        System.out.print("\n places voyageur possible  \n ");
+        for (Cellule cp:places1){
+            System.out.println(" (" +cp.getPosX()+","+cp.getPostY()+ " )");
+
+        }
+        System.out.print("  \n ");
+        if(c.isOccupedByPersonInWagon()){
+            System.out.print("\n on est dans addVoyageurtWithPosInWagon .  place p est deja occupee  = \n "+c+ "\n ");
+            throw new IllegalArgumentException("\nPlace deja ocuppe. \n !! ");
+
+        }
+
         if(  (numPlace<= nbreplaceMax) && (numPlace>0) ){
-           // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
-            p.setWagon(w);
-            p.setPersonInSameWagon(w.getPersonInWagon());
-            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
-            p.setIdWagonOfPerson(w.getIdWagon());
-            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
-            c.setOccupedByWagon(true);
-            c.setOccupedByPersonInWagon(true);
-            c.setOcupedCelluleInPlateau(true);
-            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
 
-            this.personnes.add(p);
-            this.addWagonInTrain(w);
+            if(!c.isOccupedByPersonInWagon()){
+                // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
+                p.setWagon(w);
+                p.setPersonInSameWagon(w.getPersonInWagon());
+                w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+                p.setIdWagonOfPerson(w.getIdWagon());
 
-            System.out.println("on est dans addvoyageur  wagon n° "+w.getIdWagon()+"\nnumero  place  = "+numPlace+" , "+ "\nplace = "+p.getPlaceOfPersonneInWagon());
+                c.setOccupedByWagon(true);
+                c.setOccupedByPersonInWagon(true);
+                c.setOcupedCelluleInPlateau(true);
+                c.setOccupedByPersonInWagon(true);
+                p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+
+                p.setPersonInSameWagon(w.getPersonInWagon());
+                w.addPersonneInWagon(p);
+                this.personnes.add(p);
+                this.addWagonInTrain(w);
+
+                System.out.println("on est dans addvoyageur  wagon n° "+w.getIdWagon()+"\n numero  place  = "+numPlace+" , "+ "\nplace = "+p.getPlaceOfPersonneInWagon());
+            }
 
         }
         else {
@@ -442,25 +404,62 @@ public void avancer(Personne b){
 
     public void addBanditWithPosInWagon(Personne p, Wagon w,int numPlace){
         List<Cellule> places=new ArrayList<>();
+        List<Cellule> places1=new ArrayList<>();
         places=w.getListPlaceOccuppedByWagon();
-        int nbreplaceMax =w.getLongueurWagon();
+        System.out.print("\n on est dans addBandittWithPosIn size=  "+places.size());
 
-        if(  (numPlace<= places.size()) && (numPlace>0) ){
+        int nbreplaceMax =w.getLongueurWagon();
+        places=w.getListPlaceOccuppedByWagon();
+        for(int i=0;i<places.size()-1;i++){
+            if(i%2==0){
+                places1.add(i, places.remove(i));
+            }
+            else{
+                places1.add(places.remove(i));
+
+            }
+        }
+
+        for(Cellule i : places){ places1.add(i);}
+        System.out.print("\n on est dans addBandittWithPosIn size apres =  "+places1.size());
+
+        Cellule c=places1.get(numPlace-1);
+        if(c.isOccupedByPersonInWagon()){
+            System.out.print("\n on est dans addBandittWithPosInWagon .  place p est deja occupee  = \n "+c+ "\n ");
+            throw new IllegalArgumentException("\nPlace deja ocuppe . \n !! ");
+
+        }
+        System.out.print("\nplaces Bandit possible XXXXXXXXXXXXXXXXXXXXXX : \n ");
+        for (Cellule cp:places1){
+            System.out.println(" ( " +cp.getPosX()+","+cp.getPostY()+ " )");
+
+        }
+       // System.out.print("  \n ");
+
+        if(  (numPlace<= places1.size()) && (numPlace>0) ){
             // this.addPersonInWagonModele(p,w);// appelle donne la pace alléatoire.
-            p.setWagon(w);
-            p.setPersonInSameWagon(w.getPersonInWagon());
-            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
-            p.setIdWagonOfPerson(w.getIdWagon());
-            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
-            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
-            this.personnes.add(p);
-            this.addWagonInTrain(w);
-            System.out.println("on est dans addBandi wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+                    //new Cellule(this,places.get(numPlace-1).getPosX(),places.get(numPlace-1).getPostY());
+            if(!c.isOccupedByPersonInWagon()){
+                p.setPlaceOfPersonneInWagon(c);
+                p.setWagon(w);
+                p.setPersonInSameWagon(w.getPersonInWagon());
+                w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+                p.setIdWagonOfPerson(w.getIdWagon());
+                p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+                p.setPersonInSameWagon(w.getPersonInWagon());
+                c.setOccupedByPersonInWagon(true);
+                c.setOccupedByWagon(true);
+
+                this.personnes.add(p);
+                w.addPersonneInWagon(p);
+                this.addWagonInTrain(w);
+                System.out.println("\non est dans add Bandit wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p+"\n");
+            }
 
         }
         else {
-            System.out.println(" Les places du bandit doivent etre continue entre  "+1 +" et "+ places.size()) ;
-            throw new IllegalArgumentException("  le marshal doit etre dans le wagon num 1 et ");
+            System.out.println("\n Les places du bandit doivent etre continue entre  "+1 +" et "+ places.size()+"\n") ;
+            throw new IllegalArgumentException("  \nle marshal doit etre dans le wagon num 1 et \n");
 
         }
 
@@ -469,19 +468,61 @@ public void avancer(Personne b){
 
     public void addMarshaltWithPosInWagon(Personne p, Wagon w,int numPlace){
         List<Cellule> places=new ArrayList<>();
+        List<Cellule> places1= new ArrayList<>();//w.getListPlaceOccuppedByWagon();
         places=w.getListPlaceOccuppedByWagon();
         int nbreplaceMax =w.getLongueurWagon();
+        System.out.print("\n on est dans addMarshaltWithPosInWagon size = "+places.size());
 
-        if((w.getIdWagon()==1) && (numPlace<= places.size())){
-            p.setWagon(w);
-            p.setPersonInSameWagon(w.getPersonInWagon());
-            w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
-            p.setIdWagonOfPerson(w.getIdWagon());
-            Cellule c=new Cellule(this,places.get(numPlace).getPosX(),places.get(numPlace).getPostY());
-            p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
-            this.personnes.add(p);
-            this.addWagonInTrain(w);
-            System.out.println("on est dans add Marshal  wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p);
+
+
+
+
+        // on ne chisit que les places paires qui son les  ligne de matrice
+        for(int i=0;i<places.size()-1;i++){
+            if(i%2==0){
+                places1.add(i, places.remove(i));
+            }
+            else{
+                places1.add(places.remove(i));
+
+            }
+        }
+        System.out.print(" \nplace marshal possible \n");
+        for (Cellule cp:places1){
+            System.out.println(" ( " +cp.getPosX()+","+cp.getPostY()+ " )");
+
+        }
+        System.out.print("  \n ");
+        Cellule c=places1.get(numPlace-1);
+        if(c.isOccupedByPersonInWagon()){
+            System.out.print("\n on est dans addMarshaltWithPosInWagon .  place p est deja occupee  = \n "+c+ "\n ");
+            throw new IllegalArgumentException("\nPlace deja ocuppe. \n !! ");
+
+        }
+
+
+
+        //c.setOccupedByPersonInWagon(true);
+
+        if((w.getIdWagon()==1) && (numPlace<= places1.size())){
+
+            if(!c.isOccupedByPersonInWagon()){
+                p.setWagon(w);
+                p.setPersonInSameWagon(w.getPersonInWagon());
+                w.setNbrePersoneInWagon(w.getNbrePersoneInWagon()+1);
+                p.setIdWagonOfPerson(w.getIdWagon());
+                p.setPlaceOfPersonneInWagon(c);//affecte à la bonne place.
+                c.setOccupedByPersonInWagon(true);
+                c.setOccupedByWagon(true);
+                this.personnes.add(p);
+                this.personnes.add(p);
+                w.addPersonneInWagon(p);
+                this.addWagonInTrain(w);
+                System.out.println("\n on est dans add Marshal  wagon n° "+w.getIdWagon()+" num  place  = "+numPlace+" , "+ " place = "+p+"\n");
+
+            }
+
+
 
         }
         else {
