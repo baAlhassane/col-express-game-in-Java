@@ -15,7 +15,7 @@ public class Marshal extends Personne {
 
 
 
-    public void avancer(){
+    public void avancer(Wagon removeWagon){
 
     }
     public void reculer(){

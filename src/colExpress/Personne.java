@@ -24,7 +24,7 @@ public class Personne {
     private static int nbInstancePersonne=0;
     private int idPerson;
     private int idWagonOfPerson;
-    private Set<Personne> personInSameWagon=new HashSet<>();// personne dans le meme wagon qui s'entretire
+    protected Set<Personne> personInSameWagon=new HashSet<>();// personne dans le meme wagon qui s'entretire
     protected Cellule placeOfPersonneInWagon=new Cellule(new Modele() ,-1,-1);
 
 
@@ -34,6 +34,24 @@ public class Personne {
 
     public void setPlaceOfPersonneInWagon(Cellule placeofPersonneInWagon) {
         this.placeOfPersonneInWagon = placeofPersonneInWagon;
+    }
+    protected int numPlaceInWagon=-1;
+    protected int numPlaceInTrain;
+
+    public int getNumPlaceInWagon() {
+        return numPlaceInWagon;
+    }
+
+    public void setNumPlaceInWagon(int numPlaceInWagon) {
+        this.numPlaceInWagon = numPlaceInWagon;
+    }
+
+    public int getNumPlaceInTrain() {
+        return numPlaceInTrain;
+    }
+
+    public void setNumPlaceInTrain(int numPlaceInTrain) {
+        this.numPlaceInTrain = numPlaceInTrain;
     }
 
     /**
@@ -90,6 +108,7 @@ public class Personne {
             System.out.println(" une instance de p avec wagon ");
             this.personInSameWagon.add(itp.next());
         }
+
 
 
 
@@ -192,7 +211,7 @@ public class Personne {
         System.out.println(" Les voyageurs ne move pas. Seuls les bandits bougent ");
 
     }
-    public void avancer(){
+    public void avancer(Wagon removeWagon){
         System.out.println(" Les voyageurs ne move pas. Seuls les bandits bougent");
     }
     public void reculer(){

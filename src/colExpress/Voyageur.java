@@ -1,8 +1,6 @@
 package colExpress;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Voyageur extends Personne {
@@ -43,5 +41,13 @@ public class Voyageur extends Personne {
     public void crieVoyageur(){
         System.out.println(" oh my goo. Je suis volée");
     }
+
+    @Override
+    public void avancer(Wagon removeWagon){
+        super.avancer(removeWagon);
+    }
+
+
+
 
 }

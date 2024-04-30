@@ -4,6 +4,7 @@ import modele.Modele;
 import plateau.Plateau;
 import plateau.Cellule;
 
+import java.security.PublicKey;
 import java.util.*;
 
 
@@ -24,8 +25,10 @@ public class Wagon {
     private  int nbrePersoneInWagon ;
     private  int nbrePersonInitialInWagon; ;
     private int idWagon;
+    private int compteurCourant=0;
+
 private Wagon wagon;
-private int nbreInstanceCourantWagon=0;
+private int nbreInstanceCourantWagon; //-this.idWagon;
 
     private Set<Personne> personInWagon=new HashSet<>();
     private int longueurWagon;
@@ -63,8 +66,8 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
 
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 1;
-        //this.personInWagon.add(new Personne(this));
-        //this.personInWagon.add(p);
+        this.personInWagon.add(new Personne(this));
+        this.personInWagon.add(p);
         Set<Personne> ps= new HashSet<>();
         ps=this.getPersonInWagon();
         Iterator<Personne> itp =ps.iterator();
@@ -99,7 +102,15 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
     }
 
     public void setNbreInstanceCourantWagon(int nbreInstanceCourantWagon) {
-        this.nbreInstanceCourantWagon = nbreInstanceCourantWagon;
+        //his.nbreInstanceCourantWagon = nbreInstanceCourantWagon;
+    }
+
+    public int getCompteurCourant() {
+        return compteurCourant;
+    }
+
+    public void setCompteurCourant(int compteurCourant) {
+        this.compteurCourant = compteurCourant;
     }
 
     public Wagon(){
@@ -113,10 +124,12 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 0;
         this.longueurWagon=3;
-        longueurTotalWagon+=this.longueurWagon;
-        this.distanceTotalWagonCourant=longueurTotalWagon;// la plus grand numero de ligne du wagon courant
+        this.compteurCourant++;
+       longueurTotalWagon+=this.longueurWagon; //this.nbreInstanceCourantWagon*longueurWagon;
+        //this.distanceTotalWagonCourant=idWagon*longueurWagon;// la plus grand numero de ligne du wagon courant
 
-        this.nbreInstanceCourantWagon=nbrInstanceWagon;
+        //this.nbreInstanceCourantWagon=nbrInstanceWagon;//-this.idWagon;
+        this.distanceTotalWagonCourant= this.idWagon*this.longueurWagon;//idWagon*longueurWagon;
 
         for (int i=0;i<3;i++){
             for (int j=0;j<2;j++){
@@ -179,7 +192,7 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         this.placeOcuppedByWagonInPlateau=new Cellule[this.longueurWagon][2];//
         this.idWagon=++ nbrInstanceWagon;
         nbrePersonInitialInWagon = 0;
-        this.distanceTotalWagonCourant=longueurTotalWagon;// la plus grand numero de ligne du wagon courant
+        this.distanceTotalWagonCourant-=longueurWagon;// la plus grand numero de ligne du wagon courant
         for (int i=0;i<this.longueurWagon;i++){
             for (int j=0;j<2;j++){
                 //this.placeOcuppedByWagonInPlateau[i][j]=new Cellule(i,j);
@@ -225,21 +238,31 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
     }
 
     public void addPersonneInWagon(Personne p){
+
+        this.personInWagon.add(p);
+
+        /**
         p.setWagon(this);
         Set<Personne> sp=new HashSet<>();
-        sp= getPersonInWagon();
-        Cellule c= p.getPlaceOfPersonneInWagon();
+        sp= this.personInWagon;
+        Cellule c= new Cellule(p.getPlaceOfPersonneInWagon());
 
-        sp.add(p);
+        //sp.add(p);
 
             p.setPersonInSameWagon(sp);
             this.setPersonInWagon(sp);
             int x=p.getPlaceOfPersonneInWagon().getPosX();
             int y=p.getPlaceOfPersonneInWagon().getPostY();
             // Cellule c=new Cellule(,x,y);
-            this.personInWagon.add(p);
-            this.nbrePersoneInWagon=this.personInWagon.size();
-            p.setIdWagonOfPerson(this.getIdWagon());
+        for(Personne pw :this.personInWagon){
+                this.personInWagon.add(p);
+                this.nbrePersoneInWagon=this.personInWagon.size();
+                p.setIdWagonOfPerson(this.getIdWagon());
+                this.personInWagon.add(p);
+                this.nbrePersoneInWagon=this.personInWagon.size();
+                p.setIdWagonOfPerson(this.getIdWagon());
+        }
+*/
 
 
 
@@ -281,7 +304,6 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         //p.placeOfPersonneInWagon.setOcupedCelluleInPlateau(false);
         p.placeOfPersonneInWagon.setOccupedByPersonInWagon(false);
         --this.nbrePersoneInWagon;
-
 
     }
 
@@ -334,15 +356,17 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Wagon wagon = (Wagon) o;
-        return nbrePersoneInWagon == wagon.nbrePersoneInWagon && nbrePersonInitialInWagon == wagon.nbrePersonInitialInWagon && idWagon == wagon.idWagon && Objects.equals(personInWagon, wagon.personInWagon);
+        return idWagon == wagon.idWagon ;
     }
+
 
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(nbrePersoneInWagon, nbrePersonInitialInWagon, idWagon, personInWagon);
+        return Objects.hash( idWagon);
     }
+
 
     @Override
     public String toString() {

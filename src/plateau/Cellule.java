@@ -65,6 +65,13 @@ public class Cellule  {
         //this.plateau=new Plateau();
         this.modele=m;
     }
+    public Cellule(Cellule c){
+        this.postY=c.postY;
+        this.posX=c.posX;
+        this.isOccupedByPersonInWagon=c.isOccupedByPersonInWagon;
+        this.modele=c.modele;
+        this.ocupedCelluleInPlateau=c.ocupedCelluleInPlateau;
+    }
 
     public int getPosX() {
         return posX;

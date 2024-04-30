@@ -35,7 +35,7 @@ class BanditTest {
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit ");
         System.out.println(bandit.getPlaceOfPersonneInWagon());
-        bandit.avancer();
+        //bandit.avancer(removeWagon);
         System.out.println("position bandit apres avancer ");
         System.out.println(bandit.getPlaceOfPersonneInWagon());
 
@@ -43,7 +43,7 @@ class BanditTest {
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit "+bandit2.getName());
         System.out.println(bandit2.getPlaceOfPersonneInWagon());
-        bandit2.avancer();
+        //bandit2.avancer(removeWagon);
         System.out.println("position bandit apres avancer "+bandit2.getName());
         System.out.println(bandit2.getPlaceOfPersonneInWagon());
         System.out.println(" ----------------------------------");
@@ -62,7 +62,7 @@ class BanditTest {
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit "+bandit5.getName());
         System.out.println(bandit5.getPlaceOfPersonneInWagon());
-        bandit5.avancer();
+        //bandit5.avancer(removeWagon);
         System.out.println("position bandit apres avancer "+bandit5.getName());
         System.out.println(bandit5.getPlaceOfPersonneInWagon());
 
@@ -70,7 +70,7 @@ class BanditTest {
         System.out.println("---------------------------------------");
         System.out.println("position initiale bandit "+bandit6.getName());
         System.out.println(bandit6.getPlaceOfPersonneInWagon());
-        bandit6.avancer();
+        //bandit6.avancer(removeWagon);
         System.out.println("position bandit apres avancer "+bandit6.getName());
         System.out.println(bandit6.getPlaceOfPersonneInWagon());
 

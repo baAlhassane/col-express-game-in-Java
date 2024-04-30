@@ -57,13 +57,15 @@ class ModeleTest {
 
     @Test
     void move() {
+        LinkedList<Wagon> trins=new LinkedList<>();
        // move(Personne b, Direction d)
         Modele m=new Modele();
         Plateau plateau=new Plateau(m);
-        LinkedList<Wagon> trains= new LinkedList<>();
+        //LinkedList<Wagon> trains= new LinkedList<>();
         Wagon w1=new Wagon();
         Wagon w2=new Wagon();
         Wagon w3=new Wagon();
+
 
 
         Personne p1=new Personne("alhas");
@@ -71,59 +73,28 @@ class ModeleTest {
         Personne p3=new Personne("dios");
 
 
-       /**
-        System.out.println("Deplacement personne "+p1.getName());
-        System.out.println("---------------------------------------");
-        System.out.println("position initiale bandit ");
-        System.out.println(p1.getPlaceOfPersonneInWagon());
-        m.move(p1,Direction.AVANT);
-        System.out.println("position bandit apres avancer ");
-        System.out.println(p1.getPlaceOfPersonneInWagon());
-        //m.move(p1,Direction.AVANT);
-        **/
-
         Bandit bandit=new Bandit("bandit");
         Bandit bandit1=new Bandit("bandit2");
 
-        /** cest test ajoute aleatoirement des position  **/
-       // m.addPersonInWagonModele(bandit,w3);
-        //m.addPersonInWagonModele(bandit1,w1);
-       // m.addPersonInWagonModele(p2,w2);
+        //m.addTrain(w1);
+       // m.addTrain(w2);
+        //m.addTrain(w3);
+       //m.addMarshaltWithPosInWagon(p1,w1,1);
+       m.addBanditWithPosInWagon(bandit,w1,3);
+      m.addBanditWithPosInWagon(bandit1,w3,2);
+       //m.addVoyageurWithPosInWagon(p1,w3,1);
 
-        m.addMarshaltWithPosInWagon(p1,w1,1);
-       m.addBanditWithPosInWagon(bandit,w1,1);
-       // m.addBanditWithPosInWagon(bandit1,w2,2);
-        //m.addVoyageurWithPosInWagon(p1,w3,1);
-
-        /**
-        System.out.println("Deplacement personne "+p1.getName());
-        System.out.println("------------------ Les autres personnes ne bougent pas sauf les bandits ---------------------");
-        System.out.println("position initiale personne ");
-        System.out.println(p1.getPlaceOfPersonneInWagon());
-        //m.move(bandit, Direction.AVANT);
-         **/
-        //m.move(p1,Direction.AVANT);
-        /**
-        System.out.println("position personne apres avancer ");
-        System.out.println(p1.getPlaceOfPersonneInWagon());
-         **/
+       //   for(int i=0;i<6;i++) {
+             //System.out.println("----------------------------i = "+i);
+              m.move(bandit, Direction.AVANT, w1);
+             // System.out.println("----------------------------i = "+i);
+          //}
 
 
-        /**
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ù");
 
-        System.out.println("Deplacement bandit "+bandit.getName());
-        //System.out.println("---------------------------------------");
-        //System.out.println("position initiale bandit ");
-**/
-        //m.move(bandit, Direction.AVANT);
-        //m.move(bandit,Direction.AVANT);
-       // for ( int i= 0; i<Wagon.getLongueurTotalWagon()+1;i++){
-           // System.out.println(bandit.getPlaceOfPersonneInWagon());
-           // m.move(bandit,Direction.AVANT);
-            //System.out.println("position bandit apres avancer ");
-       //}
-       // m.move(bandit1,Direction.AVANT);
+
+
+
 
 
 
@@ -183,11 +154,11 @@ class ModeleTest {
 
 
         m.addPersonInWagonModele(p1,w1);
-        m.addPersonInWagonModele(p2,w2);
-        m.addPersonInWagonModele(p3,w3);
-        m.addPersonInWagonModele(p4,w1);
-        m.addPersonInWagonModele(p1,w3);
-        m.addPersonInWagonModele(p5,w2);
+       // m.addPersonInWagonModele(p2,w2);
+       // m.addPersonInWagonModele(p3,w3);
+       // m.addPersonInWagonModele(p4,w1);
+        //m.addPersonInWagonModele(p1,w3);
+       // m.addPersonInWagonModele(p5,w2);
 
         //assertEquals(trains,m.getTrains());
         System.out.println(m.getPersonnes());
@@ -216,15 +187,25 @@ class ModeleTest {
     @Test
     void addVoyageurWithPosInWagon() {
         Modele m=new Modele();
-        Plateau p=new Plateau(m);
+        Plateau plateau=new Plateau(m);
         Wagon w=new Wagon();
-        Wagon w2=new Wagon();
-        Personne v= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.VOYAGEUR,w,1);
-        Personne b= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.BANDIT,w,2);
+        Wagon w1=new Wagon();
+        Personne v= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.VOYAGEUR,w,2);
+        Personne b= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.VOYAGEUR,w,1);
+       Personne p= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.BANDIT,w,5);
+       Personne marchall= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.MARSHAL,w,3);
     }
 
     @Test
     void addBanditWithPosInWagon() {
+        Modele m=new Modele();
+        Plateau plateau=new Plateau(m);
+        Wagon w=new Wagon();
+        Wagon w1=new Wagon();
+        Personne v= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.VOYAGEUR,w,1);
+        Personne b= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.BANDIT,w,2);
+        Personne p= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.VOYAGEUR,w,3);
+        Personne p2= m.createNewPersonneWithPosInWagon(TYPEPERSONNE.BANDIT,w,5);
     }
 
     @Test
