@@ -300,10 +300,14 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
     }
 
     public void retirerPersonneInWagon(Personne p){
-        this.personInWagon.remove(p);
-        //p.placeOfPersonneInWagon.setOcupedCelluleInPlateau(false);
-        p.placeOfPersonneInWagon.setOccupedByPersonInWagon(false);
-        --this.nbrePersoneInWagon;
+        if(this.personInWagon.contains(p)){
+            this.personInWagon.remove(p);
+            //p.placeOfPersonneInWagon.setOcupedCelluleInPlateau(false);
+            p.placeOfPersonneInWagon.setOccupedByPersonInWagon(false);
+            --this.nbrePersoneInWagon;
+
+        }
+
 
     }
 

@@ -80,8 +80,9 @@ class ModeleTest {
        // m.addTrain(w2);
         //m.addTrain(w3);
        //m.addMarshaltWithPosInWagon(p1,w1,1);
-       m.addBanditWithPosInWagon(bandit,w1,3);
-      m.addBanditWithPosInWagon(bandit1,w3,2);
+       m.addBanditWithPosInWagon(bandit,w1,2);
+       m.addWagonInTrain(w2);
+       m.addBanditWithPosInWagon(bandit1,w3,2);
        //m.addVoyageurWithPosInWagon(p1,w3,1);
 
        //   for(int i=0;i<6;i++) {
