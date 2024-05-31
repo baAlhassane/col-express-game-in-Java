@@ -19,6 +19,10 @@ public class Modele extends  Observable{
   * sont des observé.)
   * Pour ce la chaque sous composante de de JFrame doit implementer observer.
   * Donc le modèle est lié aussi à plusiuers vues.
+  *
+  * Un modéle peut etre lié à plusieurs vues. Et chaque vue est liée à un modéle.
+  * La liaison entre modele et Vue est assuré par le pattern Observer. Chaque vue est un observateur.
+  * Et chaque modification du modele(noyau fonctionnel engendre ) engendre une notificaion de chaque vue.
   * */
     private LinkedList<Wagon> trains= new LinkedList<>();
 

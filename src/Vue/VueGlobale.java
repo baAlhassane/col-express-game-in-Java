@@ -14,7 +14,20 @@ public class VueGlobale {
  *Et toutes les autres vues aussi vont le referencier.
  * Ceci veut dire que le modèle va les contenir.
  *
+ *
+ *
  * Cette frame est attaché à un modele. Frame peut ajjouter des composant de type Jpannel
+ *
+ *La méthde vue est associé aux modéle pour que la methode update puisse y accèder.
+ * Parfois on le met en argument de update(Observable obs).
+ *
+ * La vue est aussi assicié à la classe du controlleur(Les Jbutton ou Jpannel par exemple).
+ * Et c'est la vue qui crée son propre controlleur. Controleur ctrl = new Controleur(modele);
+ * Le controlleur est aussi comme observateur de modele.
+ *
+ *
+ *
+ * La
  * */
 
 

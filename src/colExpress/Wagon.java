@@ -1,14 +1,16 @@
 package colExpress;
 
 import modele.Modele;
+import modele.Observer;
 import plateau.Plateau;
 import plateau.Cellule;
 
-import java.security.PublicKey;
+import javax.swing.*;
+
 import java.util.*;
 
 
-public class Wagon {
+public class Wagon extends JPanel implements Observer {
 /*
 * Cette classe a deux construteurs.
 * 1- Avec le nombre de personne à bord.
@@ -432,4 +434,16 @@ private Cellule[][] placeOcuppedByWagonInPlateau;//=new Cellule[3][2];//
         this.distanceTotalWagonCourant=longueurTotalWagon;
  **/
     }
+
+
+
+    public void update(){
+
+    }
+
+
+
+
+
+
 }
